@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sergio OS - Optimización Extrema</title>
-    <!-- Importamos fuentes futuristas de Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
     <style>
         /* BASE Y ESTILOS GENERALES */
@@ -284,7 +283,7 @@
         }
         .btn-gold:hover { box-shadow: 0 0 15px rgba(255, 204, 0, 0.5); }
 
-        /* SECCIÓN DE PAGO MANUAL (BIZUM/PAYPAL) */
+        /* SECCIÓN DE PAGO MANUAL (BIZUM / TRANSFERENCIA) */
         .pago-section {
             margin-top: 60px;
             padding: 40px;
@@ -316,6 +315,7 @@
             display: block;
             margin: 10px 0;
             text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+            word-break: break-all;
         }
 
         .warning {
@@ -332,21 +332,26 @@
             border-top: 1px solid rgba(255,255,255,0.05);
             margin-top: 60px;
         }
+        
+        /* Ajuste para móviles en el IBAN */
+        @media (max-width: 600px) {
+            .bizum-number.iban {
+                font-size: 1.5rem;
+                letter-spacing: 1px;
+            }
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- CABECERA -->
         <header>
             <div class="top-tag">RENDIMIENTO EXTREMO · PC GAMING</div>
             <h1 class="logo">SERGIO <br> OS</h1>
             <p class="subtitle">Optimizaciones de Fortnite · Poca latencia · Aumento de FPS</p>
             
             <div class="social-buttons">
-                <!-- Cambia el # por tu enlace de TikTok cuando quieras -->
                 <a href="#" class="btn-social btn-tiktok" target="_blank">TIKTOK</a>
-                <!-- Aquí está tu enlace de Discord ya puesto -->
                 <a href="https://discord.gg/543yxFagfw" class="btn-social btn-discord" target="_blank">DISCORD</a>
             </div>
 
@@ -362,14 +367,12 @@
             </div>
         </header>
 
-        <!-- SERVICIOS -->
         <section class="services">
             <div class="section-tag">NUESTROS SERVICIOS</div>
             <h2>Elige tu Optimización</h2>
 
             <div class="cards-container">
                 
-                <!-- CARD 1: Hazlo tú mismo -->
                 <div class="card">
                     <div class="icon">📁</div>
                     <h3 class="card-title">PACK "HAZLO TÚ MISMO"</h3>
@@ -386,7 +389,6 @@
                     <a href="#pagar" class="btn-buy btn-cyan">COMPRAR AHORA</a>
                 </div>
 
-                <!-- CARD 2: Advanced Tweak -->
                 <div class="card">
                     <div class="icon">⚙️</div>
                     <h3 class="card-title">ADVANCED TWEAK</h3>
@@ -404,7 +406,6 @@
                     <a href="#pagar" class="btn-buy btn-cyan">COMPRAR AHORA</a>
                 </div>
 
-                <!-- CARD 3: VIP (Destacada) -->
                 <div class="card vip">
                     <div class="badge-vip">🔥 MÁS VENDIDO</div>
                     <div class="icon">🚀</div>
@@ -427,7 +428,6 @@
             </div>
         </section>
 
-        <!-- SECCIÓN DE PAGOS (BIZUM/PAYPAL) -->
         <section id="pagar" class="pago-section">
             <h3>💳 FINALIZA TU COMPRA</h3>
             <p style="color: #ccc; font-size: 1.1rem; margin-bottom: 30px;">
@@ -442,19 +442,18 @@
             </div>
 
             <div class="metodo-pago">
-                <span style="font-size: 1.5rem;">💙 <strong>PAGO POR PAYPAL</strong></span><br>
-                <span style="color: #888;">Si no tienes Bizum, usa este enlace seguro:</span><br><br>
-                <!-- CAMBIA ESTE ENLACE POR TU PAYPAL REAL -->
-                <a href="TU_LINK_DE_PAYPAL" target="_blank" class="btn-buy btn-cyan" style="display: inline-block; width: auto; padding: 10px 30px;">Pagar con PayPal</a>
+                <span style="font-size: 1.5rem;">🏦 <strong>TRANSFERENCIA BANCARIA</strong></span><br>
+                <span style="color: #888;">Envía el dinero directamente a este número de cuenta (IBAN):</span><br>
+                <span class="bizum-number iban">ES21 3058 0990 2827 6440 4869</span>
+                <span style="color: var(--cyan);">Pon tu nombre de Discord en el concepto.</span>
             </div>
 
             <p class="warning">⚠️ IMPORTANTE: PASO FINAL ⚠️</p>
             <p style="color: #ccc;">
-                Nada más enviar el pago, entra a nuestro <a href="https://discord.gg/543yxFagfw" target="_blank" style="color: var(--cyan); text-decoration: none; font-weight: bold;">Discord oficial</a> y abre un ticket mandando la captura. Nos pondremos con tu PC en ese mismo instante.
+                Nada más enviar el pago, entra a nuestro <a href="https://discord.gg/543yxFagfw" target="_blank" style="color: var(--cyan); text-decoration: none; font-weight: bold;">Discord oficial</a> y abre un ticket mandando la captura del pago. Nos pondremos con tu PC en ese mismo instante.
             </p>
         </section>
 
-        <!-- FOOTER -->
         <footer>
             <p>SERGIO OS</p>
             <p style="font-size: 0.8rem;">© 2026 Sergio OS · Optimizaciones Fortnite Pro</p>
