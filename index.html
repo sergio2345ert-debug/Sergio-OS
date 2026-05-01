@@ -42,7 +42,6 @@
         .btn-tiktok { background: #111; border: 1px solid #333; }
         .btn-discord { background: #5865F2; }
 
-        /* Ahora hay 4 tarjetas en vez de 2, así que se ajustan automáticamente */
         .cards-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; text-align: left; }
 
         .card {
@@ -76,9 +75,8 @@
         .close-btn { position: absolute; top: 10px; right: 20px; color: white; font-size: 30px; cursor: pointer; }
 
         .metodo-box {
-            background: #040914; border: 1px solid #1a253a; padding: 15px; border-radius: 8px; margin-bottom: 10px;
+            background: #040914; border: 1px solid #1a253a; padding: 25px; border-radius: 8px; margin-bottom: 20px;
         }
-        .numero-destacado { font-family: 'Orbitron'; font-size: 1.8rem; color: var(--cyan); display: block; }
     </style>
 </head>
 <body>
@@ -93,7 +91,6 @@
         </header>
 
         <div class="cards-container">
-            <!-- PRODUCTO 1: PACK HAZLO TÚ MISMO -->
             <div class="card">
                 <h3>PACK HAZLO TÚ MISMO</h3>
                 <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Scripts privados + ISO exclusiva + Guía de instalación.</p>
@@ -101,7 +98,6 @@
                 <button onclick="abrirModal('https://buy.stripe.com/dRm6oGcy3cjEa4PfKMd7q02')" class="btn-buy btn-cyan">COMPRAR</button>
             </div>
 
-            <!-- PRODUCTO 2: SEGURO DE MANTENIMIENTO -->
             <div class="card">
                 <h3>SEGURO MANTENIMIENTO</h3>
                 <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Mantenimiento mensual y revisión remota de 15 mins.</p>
@@ -109,7 +105,6 @@
                 <button onclick="abrirModal('https://buy.stripe.com/7sYcN42Xt2J4ccX2Y0d7q01')" class="btn-buy btn-cyan">COMPRAR</button>
             </div>
 
-            <!-- PRODUCTO 3: ADVANCED TWEAK -->
             <div class="card">
                 <h3>ADVANCED TWEAK</h3>
                 <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Inyección de FPS + Limpieza profunda + Ajustes de plan de energía.</p>
@@ -117,7 +112,6 @@
                 <button onclick="abrirModal('https://buy.stripe.com/aFa3cu2Xt2J4gtd1TWd7q03')" class="btn-buy btn-cyan">COMPRAR</button>
             </div>
 
-            <!-- PRODUCTO 4: ULTIMATE VIP -->
             <div class="card vip">
                 <h3>ULTIMATE VIP</h3>
                 <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Optimización total. Overclock/PBO en BIOS + Cero Input Delay.</p>
@@ -127,35 +121,23 @@
         </div>
     </div>
 
-    <!-- MODAL DE PAGO (MENÚ EMERGENTE) -->
+    <!-- MODAL DE PAGO (SOLO STRIPE) -->
     <div id="pagoModal" class="modal-overlay">
         <div class="modal-content">
             <span class="close-btn" onclick="cerrarModal()">&times;</span>
-            <h3 style="color: var(--cyan);">ELIGE MÉTODO DE PAGO</h3>
+            <h3 style="color: var(--cyan);">MÉTODO DE PAGO SEGURO</h3>
             
             <div class="metodo-box">
-                <h4 style="margin:0">💳 TARJETA / APPLE PAY</h4>
-                <p style="font-size:0.8rem; color:#888">Pago rápido, seguro y automático</p>
-                <!-- Este enlace cambiará solo dependiendo del botón que pulses gracias al código de abajo -->
-                <a id="enlaceStripe" href="#" target="_blank" class="btn-buy btn-cyan" style="padding:8px">Pagar ahora</a>
+                <h4 style="margin:0">💳 TARJETA / APPLE PAY / PAYPAL</h4>
+                <p style="font-size:0.9rem; color:#8b9ab3; margin: 10px 0 20px 0;">Pago automático procesado de forma segura por Stripe.</p>
+                <a id="enlaceStripe" href="#" target="_blank" class="btn-buy btn-cyan">Pagar ahora</a>
             </div>
 
-            <div class="metodo-box">
-                <h4 style="margin:0">📲 BIZUM</h4>
-                <span class="numero-destacado">663 252 932</span>
-            </div>
-
-            <div class="metodo-box">
-                <h4 style="margin:0">💙 PAYPAL</h4>
-                <a href="https://paypal.me/sergio212660" target="_blank" class="btn-buy btn-cyan" style="padding:8px; background:#003087">Paypal.me</a>
-            </div>
-
-            <p style="font-size:0.8rem; color: #ff4757; font-weight: bold;">⚠️ IMPORTANTE: Abre ticket en Discord tras pagar</p>
+            <p style="font-size:0.85rem; color: #ff4757; font-weight: bold;">⚠️ AVISO: Una vez realizado el pago, abre un ticket en Discord con tu comprobante.</p>
         </div>
     </div>
 
     <script>
-        // Esta pequeña magia actualiza el botón de Stripe con el link correcto cada vez
         function abrirModal(linkStripeSeleccionado) { 
             document.getElementById('enlaceStripe').href = linkStripeSeleccionado;
             document.getElementById('pagoModal').style.display = 'flex'; 
