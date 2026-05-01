@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sergio OS - Optimización Extrema</title>
+    <title>Sergio OS - Optimización Pro</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
     <style>
-        /* BASE Y ESTILOS GENERALES */
         :root {
             --bg-color: #030812;
             --card-bg: #07101d;
@@ -18,328 +17,79 @@
         }
 
         html { scroll-behavior: smooth; }
-        
         body {
             background-color: var(--bg-color);
-            background-image: 
-                radial-gradient(circle at 15% 50%, rgba(0, 212, 255, 0.05), transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(0, 212, 255, 0.05), transparent 25%);
+            background-image: radial-gradient(circle at 15% 50%, rgba(0, 212, 255, 0.05), transparent 25%);
             color: var(--text-main);
             font-family: 'Rajdhani', sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
+            margin: 0; padding: 0; line-height: 1.6;
         }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
 
-        /* CABECERA (HEADER) */
-        header {
-            text-align: center;
-            padding: 40px 10px;
-        }
-
+        header { text-align: center; padding: 40px 10px; }
         .top-tag {
-            display: inline-block;
-            background: rgba(0, 212, 255, 0.1);
-            border: 1px solid rgba(0, 212, 255, 0.3);
-            padding: 5px 20px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            color: var(--cyan);
-            margin-bottom: 20px;
+            display: inline-block; background: rgba(0, 212, 255, 0.1); border: 1px solid rgba(0, 212, 255, 0.3);
+            padding: 5px 20px; border-radius: 4px; font-size: 0.8rem; letter-spacing: 2px; color: var(--cyan); margin-bottom: 20px;
         }
 
         h1.logo {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 4rem;
-            line-height: 1;
-            margin: 0;
+            font-family: 'Orbitron', sans-serif; font-size: 4rem; line-height: 1; margin: 0;
             background: linear-gradient(to right, #00f2fe 0%, #4facfe 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
-            text-transform: uppercase;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(0, 212, 255, 0.3); text-transform: uppercase;
         }
 
-        .subtitle {
-            color: var(--text-muted);
-            letter-spacing: 2px;
-            font-size: 0.9rem;
-            margin-top: 15px;
-            text-transform: uppercase;
-        }
-
-        /* BOTONES SOCIALES Y STATS */
-        .social-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 30px 0;
-        }
-
+        .social-buttons { display: flex; justify-content: center; gap: 15px; margin: 30px 0; }
         .btn-social {
-            padding: 12px 30px;
-            border-radius: 8px;
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-            transition: 0.3s;
+            padding: 12px 30px; border-radius: 8px; text-decoration: none; color: white;
+            font-weight: bold; font-size: 1.1rem; letter-spacing: 1px; transition: 0.3s;
         }
-
         .btn-tiktok { background: #111; border: 1px solid #333; }
         .btn-discord { background: #5865F2; }
 
-        .stats-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-top: 30px;
-        }
+        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 30px 0; }
+        .stat-box { background: var(--card-bg); border: 1px solid rgba(255,255,255,0.05); padding: 20px; border-radius: 12px; text-align: center; }
+        .stat-box h3 { font-family: 'Orbitron', sans-serif; font-size: 2.2rem; color: var(--cyan); margin: 0; }
 
-        .stat-box {
-            background: var(--card-bg);
-            border: 1px solid rgba(255,255,255,0.05);
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
-        }
+        .services { padding: 40px 0; text-align: center; }
+        .cards-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; text-align: left; }
 
-        .stat-box h3 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2.2rem;
-            color: var(--cyan);
-            margin: 0;
-            text-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
-        }
-
-        .stat-box p {
-            margin: 5px 0 0;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-        }
-
-        /* SECCIÓN SERVICIOS */
-        .services {
-            padding: 40px 0;
-            text-align: center;
-        }
-
-        .section-tag {
-            color: var(--text-muted);
-            letter-spacing: 3px;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-        }
-
-        .services h2 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2.2rem;
-            color: white;
-            margin: 10px 0 40px;
-        }
-
-        .cards-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            text-align: left;
-        }
-
-        /* ESTILO DE LAS TARJETAS */
         .card {
-            background: var(--card-bg);
-            border: 1px solid rgba(0, 212, 255, 0.15);
-            border-radius: 16px;
-            padding: 30px;
-            position: relative;
-            transition: 0.3s;
+            background: var(--card-bg); border: 1px solid rgba(0, 212, 255, 0.15); border-radius: 16px;
+            padding: 25px; position: relative; transition: 0.3s; display: flex; flex-direction: column;
         }
-
-        .card:hover {
-            border-color: var(--cyan);
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
-            transform: translateY(-5px);
-        }
-
-        .card.vip {
-            border: 1px solid rgba(255, 204, 0, 0.4);
-            background: linear-gradient(180deg, rgba(20, 15, 0, 0.8) 0%, var(--card-bg) 100%);
-        }
-
-        .card.vip:hover {
-            border-color: var(--gold);
-            box-shadow: 0 0 25px rgba(255, 204, 0, 0.15);
-        }
-
+        .card:hover { border-color: var(--cyan); transform: translateY(-5px); }
+        .card.vip { border: 1px solid rgba(255, 204, 0, 0.4); background: linear-gradient(180deg, rgba(20, 15, 0, 0.8) 0%, var(--card-bg) 100%); }
+        
         .badge-vip {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: linear-gradient(90deg, #ff5e00, #ff8c00);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            letter-spacing: 1px;
+            position: absolute; top: 15px; right: 15px; background: linear-gradient(90deg, #ff5e00, #ff8c00);
+            color: white; padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; font-weight: bold;
         }
 
-        .icon { font-size: 2rem; margin-bottom: 15px; }
+        .price { font-family: 'Orbitron', sans-serif; font-size: 3rem; margin: 10px 0; }
+        .price.cyan { color: var(--cyan); }
+        .price.gold { color: var(--gold); }
 
-        .card-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.2rem;
-            color: white;
-            margin: 0;
-            text-transform: uppercase;
-        }
-
-        .price {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin: 10px 0 0;
-            line-height: 1;
-        }
-
-        .price.cyan { color: var(--cyan); text-shadow: 0 0 15px rgba(0, 212, 255, 0.3); }
-        .price.gold { color: var(--gold); text-shadow: 0 0 15px rgba(255, 204, 0, 0.3); }
-
-        .sub-price {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-top: 5px;
-        }
-
-        .desc-italic {
-            font-style: italic;
-            color: #a0aec0;
-            font-size: 1rem;
-            margin: 20px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            padding-bottom: 20px;
-        }
-
-        ul.features {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 30px 0;
-        }
-
-        ul.features li {
-            margin-bottom: 15px;
-            font-size: 1.05rem;
-            display: flex;
-            align-items: center;
-            color: #d1d5db;
-        }
-
-        ul.features li::before {
-            content: '✓';
-            color: var(--cyan);
-            font-weight: bold;
-            margin-right: 12px;
-            font-size: 1.2rem;
-        }
-
-        .card.vip ul.features li::before {
-            color: var(--gold);
-        }
+        ul.features { list-style: none; padding: 0; margin: 0 0 20px 0; flex-grow: 1; }
+        ul.features li { margin-bottom: 10px; font-size: 0.95rem; display: flex; align-items: center; color: #d1d5db; }
+        ul.features li::before { content: '✓'; color: var(--cyan); margin-right: 10px; font-weight: bold; }
+        .card.vip ul.features li::before { color: var(--gold); }
 
         .btn-buy {
-            display: block;
-            width: 100%;
-            text-align: center;
-            padding: 15px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.1rem;
-            font-weight: bold;
-            transition: 0.3s;
-            box-sizing: border-box;
+            display: block; width: 100%; text-align: center; padding: 12px; border-radius: 8px;
+            text-decoration: none; font-family: 'Orbitron', sans-serif; font-weight: bold; transition: 0.3s;
         }
+        .btn-cyan { background: linear-gradient(90deg, #0072ff, #00c6ff); color: white; }
+        .btn-gold { background: linear-gradient(90deg, #d4af37, #ffcc00); color: #000; }
 
-        .btn-cyan {
-            background: linear-gradient(90deg, #0072ff, #00c6ff);
-            color: white;
-            border: none;
-        }
-        .btn-cyan:hover { box-shadow: 0 0 15px rgba(0, 198, 255, 0.5); }
-
-        .btn-gold {
-            background: linear-gradient(90deg, #d4af37, #ffcc00);
-            color: #000;
-            border: none;
-        }
-        .btn-gold:hover { box-shadow: 0 0 15px rgba(255, 204, 0, 0.5); }
-
-        /* SECCIÓN DE PAGO MANUAL (BIZUM / TRANSFERENCIA) */
         .pago-section {
-            margin-top: 60px;
-            padding: 40px;
-            background: var(--card-bg);
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            border-radius: 16px;
-            text-align: center;
+            margin-top: 60px; padding: 40px; background: var(--card-bg); border: 1px solid var(--cyan);
+            border-radius: 16px; text-align: center;
         }
-
-        .pago-section h3 {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--cyan);
-            font-size: 1.8rem;
-            margin-top: 0;
-        }
-
-        .metodo-pago {
-            background: #040914;
-            border: 1px solid #1a253a;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-
-        .bizum-number {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2.5rem;
-            color: var(--cyan);
-            display: block;
-            margin: 10px 0;
-            text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
-            word-break: break-all;
-        }
-
-        .warning {
-            color: #ff4757;
-            font-weight: bold;
-            font-size: 1.1rem;
-            margin-top: 20px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 0;
-            color: var(--text-muted);
-            border-top: 1px solid rgba(255,255,255,0.05);
-            margin-top: 60px;
-        }
+        .bizum-number { font-family: 'Orbitron', sans-serif; font-size: 2.5rem; color: var(--cyan); display: block; margin: 15px 0; }
         
-        /* Ajuste para móviles en el IBAN */
-        @media (max-width: 600px) {
-            .bizum-number.iban {
-                font-size: 1.5rem;
-                letter-spacing: 1px;
-            }
-        }
+        footer { text-align: center; padding: 40px 0; color: var(--text-muted); font-size: 0.8rem; }
     </style>
 </head>
 <body>
@@ -348,7 +98,7 @@
         <header>
             <div class="top-tag">RENDIMIENTO EXTREMO · PC GAMING</div>
             <h1 class="logo">SERGIO <br> OS</h1>
-            <p class="subtitle">Optimizaciones de Fortnite · Poca latencia · Aumento de FPS</p>
+            <p style="color:var(--text-muted); letter-spacing:2px; text-transform:uppercase;">Optimizaciones · Latencia Cero · FPS Boost</p>
             
             <div class="social-buttons">
                 <a href="#" class="btn-social btn-tiktok" target="_blank">TIKTOK</a>
@@ -356,109 +106,99 @@
             </div>
 
             <div class="stats-grid">
-                <div class="stat-box">
-                    <h3>491+</h3>
-                    <p>CLIENTES</p>
-                </div>
-                <div class="stat-box">
-                    <h3>196+</h3>
-                    <p>FPS GANADOS</p>
-                </div>
+                <div class="stat-box"><h3>491+</h3><p>CLIENTES</p></div>
+                <div class="stat-box"><h3>196+</h3><p>FPS GANADOS</p></div>
             </div>
         </header>
 
         <section class="services">
-            <div class="section-tag">NUESTROS SERVICIOS</div>
             <h2>Elige tu Optimización</h2>
-
             <div class="cards-container">
                 
                 <div class="card">
-                    <div class="icon">📁</div>
-                    <h3 class="card-title">PACK "HAZLO TÚ MISMO"</h3>
+                    <h3 style="text-transform:uppercase;">Pack "Hazlo tú mismo"</h3>
                     <div class="price cyan">5€</div>
-                    <p class="sub-price">Pago único</p>
-                    <p class="desc-italic">La fórmula secreta para presupuestos ajustados.</p>
+                    <p style="font-style:italic; color:#888; margin-bottom:15px;">Scripts privados + ISO exclusiva.</p>
                     <ul class="features">
-                        <li>Link de descarga con 3 scripts privados</li>
-                        <li>ISO exclusiva de Sergio OS</li>
-                        <li>Bloc de notas con pasos de instalación</li>
-                        <li>Sin esperar colas ni AnyDesk</li>
-                        <li>Instálalo a tu ritmo</li>
+                        <li>3 Scripts privados</li>
+                        <li>ISO Sergio OS</li>
+                        <li>Guía paso a paso</li>
+                        <li>Sin AnyDesk</li>
                     </ul>
-                    <a href="#pagar" class="btn-buy btn-cyan">COMPRAR AHORA</a>
+                    <a href="#pagar" class="btn-buy btn-cyan">COMPRAR</a>
                 </div>
 
                 <div class="card">
-                    <div class="icon">⚙️</div>
-                    <h3 class="card-title">ADVANCED TWEAK</h3>
+                    <h3 style="text-transform:uppercase;">Advanced Tweak</h3>
                     <div class="price cyan">10€</div>
-                    <p class="sub-price">Pago único</p>
-                    <p class="desc-italic">Inyección rápida de FPS sin formatear.</p>
+                    <p style="font-style:italic; color:#888; margin-bottom:15px;">Optimización remota sin formatear.</p>
                     <ul class="features">
-                        <li>Conexión remota a tu PC</li>
-                        <li>Limpieza profunda de Windows</li>
+                        <li>Conexión remota</li>
+                        <li>Limpieza profunda</li>
                         <li>Plan de energía custom</li>
-                        <li>Optimización de registro</li>
-                        <li>Ajuste de drivers avanzado</li>
-                        <li>Aniquilación de procesos en segundo plano</li>
+                        <li>Ajuste de drivers</li>
                     </ul>
-                    <a href="#pagar" class="btn-buy btn-cyan">COMPRAR AHORA</a>
+                    <a href="#pagar" class="btn-buy btn-cyan">COMPRAR</a>
                 </div>
 
                 <div class="card vip">
-                    <div class="badge-vip">🔥 MÁS VENDIDO</div>
-                    <div class="icon">🚀</div>
-                    <h3 class="card-title">ULTIMATE TWEAK VIP</h3>
+                    <div class="badge-vip">🔥 TOP VENTAS</div>
+                    <h3 style="text-transform:uppercase;">Ultimate Tweak VIP</h3>
                     <div class="price gold">20€</div>
-                    <p class="sub-price">La optimización de los PROS</p>
-                    <p class="desc-italic">Reconstrucción total. Cero Delay Garantizado.</p>
+                    <p style="font-style:italic; color:#888; margin-bottom:15px;">Reconstrucción total del sistema.</p>
                     <ul class="features">
-                        <li>Formateo + instalación Sergio OS V2</li>
-                        <li>Todo lo del pack Advanced incluido</li>
-                        <li>Overclock / PBO en BIOS</li>
-                        <li>XMP RAM + ReSize BAR + FCLK</li>
-                        <li>Eliminación de C-States</li>
-                        <li>Limpieza de IRQs (0 lag garantizado)</li>
-                        <li>Ratón y teclado a velocidad de la luz</li>
+                        <li>Formateo + Sergio OS V2</li>
+                        <li>Overclock / PBO BIOS</li>
+                        <li>XMP + ReSize BAR</li>
+                        <li>Prioridad Ticket Discord</li>
                     </ul>
-                    <a href="#pagar" class="btn-buy btn-gold">COMPRAR AHORA</a>
+                    <a href="#pagar" class="btn-buy btn-gold">COMPRAR</a>
+                </div>
+
+                <div class="card">
+                    <h3 style="text-transform:uppercase;">Seguro Mantenimiento</h3>
+                    <div class="price cyan">5€<span style="font-size:1rem;">/mes</span></div>
+                    <ul class="features">
+                        <li>Limpieza mensual</li>
+                        <li>Actualización drivers</li>
+                        <li>Exclusivo clientes VIP</li>
+                    </ul>
+                    <a href="#pagar" class="btn-buy btn-cyan">SUSCRIBIRME</a>
+                </div>
+
+                <div class="card">
+                    <h3 style="text-transform:uppercase;">Licencias Windows</h3>
+                    <div class="price cyan">8€</div>
+                    <ul class="features">
+                        <li>Windows 10 / 11 Pro</li>
+                        <li>Original y Permanente</li>
+                        <li>Adiós marca de agua</li>
+                    </ul>
+                    <a href="#pagar" class="btn-buy btn-cyan">OBTENER</a>
                 </div>
 
             </div>
         </section>
 
         <section id="pagar" class="pago-section">
-            <h3>💳 FINALIZA TU COMPRA</h3>
-            <p style="color: #ccc; font-size: 1.1rem; margin-bottom: 30px;">
-                Para no cobrarte comisiones extra, los pagos se hacen directos. Elige el método que prefieras:
-            </p>
-
-            <div class="metodo-pago">
-                <span style="font-size: 1.5rem;">📲 <strong>PAGO POR BIZUM</strong></span><br>
-                <span style="color: #888;">Envía el importe exacto del pack a este número:</span>
+            <h3 style="font-family:'Orbitron';">💳 MÉTODOS DE PAGO</h3>
+            <p>Envía el pago y abre ticket en Discord con la captura.</p>
+            <div style="background:#040914; padding:20px; border-radius:8px; margin-bottom:20px; border:1px solid #1a253a;">
+                <span>📲 <strong>BIZUM:</strong></span>
                 <span class="bizum-number">663 252 932</span>
-                <span style="color: var(--cyan);">Pon tu nombre de Discord en el concepto.</span>
+                <span style="color:var(--cyan);">Concepto: Tu usuario de Discord</span>
             </div>
-
-            <div class="metodo-pago">
-                <span style="font-size: 1.5rem;">🏦 <strong>TRANSFERENCIA BANCARIA</strong></span><br>
-                <span style="color: #888;">Envía el dinero directamente a este número de cuenta (IBAN):</span><br>
-                <span class="bizum-number iban">ES21 3058 0990 2827 6440 4869</span>
-                <span style="color: var(--cyan);">Pon tu nombre de Discord en el concepto.</span>
+            <div style="background:#040914; padding:20px; border-radius:8px; border:1px solid #1a253a;">
+                <span>💙 <strong>PAYPAL:</strong></span><br><br>
+                <a href="TU_LINK_DE_PAYPAL" target="_blank" class="btn-buy btn-cyan" style="display:inline-block; width:auto; padding:10px 40px;">Pagar por PayPal</a>
             </div>
-
-            <p class="warning">⚠️ IMPORTANTE: PASO FINAL ⚠️</p>
-            <p style="color: #ccc;">
-                Nada más enviar el pago, entra a nuestro <a href="https://discord.gg/543yxFagfw" target="_blank" style="color: var(--cyan); text-decoration: none; font-weight: bold;">Discord oficial</a> y abre un ticket mandando la captura del pago. Nos pondremos con tu PC en ese mismo instante.
-            </p>
+            <p style="color:#ff4757; font-weight:bold; margin-top:30px;">⚠️ IMPORTANTE: Abre ticket en Discord tras pagar.</p>
+            <a href="https://discord.gg/543yxFagfw" target="_blank" class="btn-buy btn-gold" style="width:250px; margin:20px auto;">ENTRAR AL DISCORD</a>
         </section>
 
         <footer>
-            <p>SERGIO OS</p>
-            <p style="font-size: 0.8rem;">© 2026 Sergio OS · Optimizaciones Fortnite Pro</p>
+            <p>SERGIO OS © 2026 · OPTIMIZACIONES FORTNITE PRO</p>
         </footer>
     </div>
-
 </body>
 </html>
