@@ -79,17 +79,55 @@
         .btn-buy {
             display: block; width: 100%; text-align: center; padding: 12px; border-radius: 8px;
             text-decoration: none; font-family: 'Orbitron', sans-serif; font-weight: bold; transition: 0.3s;
+            cursor: pointer; border: none; box-sizing: border-box;
         }
         .btn-cyan { background: linear-gradient(90deg, #0072ff, #00c6ff); color: white; }
         .btn-gold { background: linear-gradient(90deg, #d4af37, #ffcc00); color: #000; }
 
-        .pago-section {
-            margin-top: 60px; padding: 40px; background: var(--card-bg); border: 1px solid var(--cyan);
-            border-radius: 16px; text-align: center;
+        /* ESTILOS DEL MENÚ EMERGENTE (MODAL) */
+        .modal-overlay {
+            display: none; 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85); z-index: 1000;
+            justify-content: center; align-items: center;
+            backdrop-filter: blur(5px);
         }
-        .bizum-number { font-family: 'Orbitron', sans-serif; font-size: 2.5rem; color: var(--cyan); display: block; margin: 15px 0; }
+
+        .modal-content {
+            background: var(--card-bg); border: 2px solid var(--cyan);
+            border-radius: 16px; padding: 30px; width: 90%; max-width: 600px;
+            text-align: center; position: relative;
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.2);
+            max-height: 90vh; overflow-y: auto;
+        }
+
+        .close-btn {
+            position: absolute; top: 15px; right: 20px;
+            color: white; font-size: 35px; font-weight: bold;
+            cursor: pointer; transition: 0.3s; line-height: 1;
+        }
+        .close-btn:hover { color: var(--cyan); }
+
+        .metodo-box {
+            background: #040914; border: 1px solid #1a253a;
+            padding: 20px; border-radius: 8px; margin-bottom: 15px;
+        }
+        .metodo-box h4 { margin: 0 0 10px 0; color: white; font-size: 1.2rem; }
         
-        footer { text-align: center; padding: 40px 0; color: var(--text-muted); font-size: 0.8rem; }
+        .numero-destacado {
+            font-family: 'Orbitron', sans-serif; font-size: 2.2rem; color: var(--cyan);
+            display: block; text-shadow: 0 0 10px rgba(0, 212, 255, 0.3); margin: 10px 0;
+        }
+        
+        .iban-destacado {
+            font-family: 'Orbitron', sans-serif; font-size: 1.4rem; color: var(--cyan);
+            display: block; text-shadow: 0 0 10px rgba(0, 212, 255, 0.3); margin: 10px 0;
+            letter-spacing: 1px;
+        }
+
+        .nota { color: var(--cyan); font-size: 0.9rem; margin: 0; }
+
+        footer { text-align: center; padding: 40px 0; color: var(--text-muted); font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 40px; }
     </style>
 </head>
 <body>
@@ -101,6 +139,7 @@
             <p style="color:var(--text-muted); letter-spacing:2px; text-transform:uppercase;">Optimizaciones · Latencia Cero · FPS Boost</p>
             
             <div class="social-buttons">
+                <!-- Cambia el # por tu link de TikTok cuando lo tengas a mano -->
                 <a href="#" class="btn-social btn-tiktok" target="_blank">TIKTOK</a>
                 <a href="https://discord.gg/543yxFagfw" class="btn-social btn-discord" target="_blank">DISCORD</a>
             </div>
@@ -115,6 +154,7 @@
             <h2>Elige tu Optimización</h2>
             <div class="cards-container">
                 
+                <!-- Pack 5€ -->
                 <div class="card">
                     <h3 style="text-transform:uppercase;">Pack "Hazlo tú mismo"</h3>
                     <div class="price cyan">5€</div>
@@ -125,9 +165,10 @@
                         <li>Guía paso a paso</li>
                         <li>Sin AnyDesk</li>
                     </ul>
-                    <a href="#pagar" class="btn-buy btn-cyan">COMPRAR</a>
+                    <a onclick="abrirModal()" class="btn-buy btn-cyan">COMPRAR</a>
                 </div>
 
+                <!-- Advanced 10€ -->
                 <div class="card">
                     <h3 style="text-transform:uppercase;">Advanced Tweak</h3>
                     <div class="price cyan">10€</div>
@@ -138,9 +179,10 @@
                         <li>Plan de energía custom</li>
                         <li>Ajuste de drivers</li>
                     </ul>
-                    <a href="#pagar" class="btn-buy btn-cyan">COMPRAR</a>
+                    <a onclick="abrirModal()" class="btn-buy btn-cyan">COMPRAR</a>
                 </div>
 
+                <!-- VIP 20€ -->
                 <div class="card vip">
                     <div class="badge-vip">🔥 TOP VENTAS</div>
                     <h3 style="text-transform:uppercase;">Ultimate Tweak VIP</h3>
@@ -152,9 +194,10 @@
                         <li>XMP + ReSize BAR</li>
                         <li>Prioridad Ticket Discord</li>
                     </ul>
-                    <a href="#pagar" class="btn-buy btn-gold">COMPRAR</a>
+                    <a onclick="abrirModal()" class="btn-buy btn-gold">COMPRAR</a>
                 </div>
 
+                <!-- Seguro 5€ -->
                 <div class="card">
                     <h3 style="text-transform:uppercase;">Seguro Mantenimiento</h3>
                     <div class="price cyan">5€<span style="font-size:1rem;">/mes</span></div>
@@ -163,9 +206,10 @@
                         <li>Actualización drivers</li>
                         <li>Exclusivo clientes VIP</li>
                     </ul>
-                    <a href="#pagar" class="btn-buy btn-cyan">SUSCRIBIRME</a>
+                    <a onclick="abrirModal()" class="btn-buy btn-cyan">SUSCRIBIRME</a>
                 </div>
 
+                <!-- Licencias 8€ -->
                 <div class="card">
                     <h3 style="text-transform:uppercase;">Licencias Windows</h3>
                     <div class="price cyan">8€</div>
@@ -174,31 +218,68 @@
                         <li>Original y Permanente</li>
                         <li>Adiós marca de agua</li>
                     </ul>
-                    <a href="#pagar" class="btn-buy btn-cyan">OBTENER</a>
+                    <a onclick="abrirModal()" class="btn-buy btn-cyan">OBTENER</a>
                 </div>
 
             </div>
-        </section>
-
-        <section id="pagar" class="pago-section">
-            <h3 style="font-family:'Orbitron';">💳 MÉTODOS DE PAGO</h3>
-            <p>Envía el pago y abre ticket en Discord con la captura.</p>
-            <div style="background:#040914; padding:20px; border-radius:8px; margin-bottom:20px; border:1px solid #1a253a;">
-                <span>📲 <strong>BIZUM:</strong></span>
-                <span class="bizum-number">663 252 932</span>
-                <span style="color:var(--cyan);">Concepto: Tu usuario de Discord</span>
-            </div>
-            <div style="background:#040914; padding:20px; border-radius:8px; border:1px solid #1a253a;">
-                <span>💙 <strong>PAYPAL:</strong></span><br><br>
-                <a href="TU_LINK_DE_PAYPAL" target="_blank" class="btn-buy btn-cyan" style="display:inline-block; width:auto; padding:10px 40px;">Pagar por PayPal</a>
-            </div>
-            <p style="color:#ff4757; font-weight:bold; margin-top:30px;">⚠️ IMPORTANTE: Abre ticket en Discord tras pagar.</p>
-            <a href="https://discord.gg/543yxFagfw" target="_blank" class="btn-buy btn-gold" style="width:250px; margin:20px auto;">ENTRAR AL DISCORD</a>
         </section>
 
         <footer>
             <p>SERGIO OS © 2026 · OPTIMIZACIONES FORTNITE PRO</p>
         </footer>
     </div>
+
+    <!-- MENÚ EMERGENTE (MODAL) OCULTO POR DEFECTO -->
+    <div id="pagoModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-btn" onclick="cerrarModal()">&times;</span>
+            <h3 style="font-family:'Orbitron'; color: var(--cyan); margin-top: 0; font-size: 1.8rem;">💳 FINALIZA TU COMPRA</h3>
+            <p style="color: #ccc; margin-bottom: 25px;">Para no cobrarte comisiones extra, los pagos se hacen directos. Elige el método que prefieras:</p>
+
+            <div class="metodo-box">
+                <h4>📲 PAGO POR BIZUM</h4>
+                <p style="color: #888; margin: 0;">Envía el importe exacto a este número:</p>
+                <span class="numero-destacado">663 252 932</span>
+                <p class="nota">Pon tu nombre de Discord en el concepto.</p>
+            </div>
+
+            <div class="metodo-box">
+                <h4>🏦 TRANSFERENCIA BANCARIA</h4>
+                <p style="color: #888; margin: 0;">Envía el dinero a este número de cuenta (IBAN):</p>
+                <span class="iban-destacado">ES21 3058 0990 2827 6440 4869</span>
+                <p class="nota">Pon tu nombre de Discord en el concepto.</p>
+            </div>
+
+            <div class="metodo-box">
+                <h4>💙 PAGO POR PAYPAL</h4>
+                <br>
+                <a href="https://paypal.me/sergio212660" target="_blank" class="btn-buy btn-cyan" style="display:inline-block; width:auto; padding:10px 40px;">Pagar con PayPal</a>
+            </div>
+
+            <p style="color:#ff4757; font-weight:bold; margin-top:25px;">⚠️ IMPORTANTE: PASO FINAL ⚠️</p>
+            <p style="color: #ccc; font-size: 0.9rem;">Nada más enviar el pago, entra al Discord y abre ticket.</p>
+            <a href="https://discord.gg/543yxFagfw" target="_blank" class="btn-buy btn-gold" style="width: 80%; margin: 15px auto 0;">ENTRAR AL DISCORD</a>
+        </div>
+    </div>
+
+    <!-- SCRIPT PARA HACER FUNCIONAR EL MENÚ EMERGENTE -->
+    <script>
+        function abrirModal() {
+            document.getElementById('pagoModal').style.display = 'flex';
+        }
+
+        function cerrarModal() {
+            document.getElementById('pagoModal').style.display = 'none';
+        }
+
+        // Cierra el menú si el cliente hace clic fuera de la caja
+        window.onclick = function(event) {
+            var modal = document.getElementById('pagoModal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
 </body>
 </html>
