@@ -164,7 +164,7 @@
         <span class="section-tag">NUESTROS SERVICIOS</span>
         <h2 class="section-title">Elige tu Optimización</h2>
 
-        <!-- PRODUCTOS (AHORA LE MANDAN EL PLAN A LA BASE DE DATOS) -->
+        <!-- PRODUCTOS -->
         <div class="card">
             <div class="card-icon">📁</div>
             <h3 class="card-title">PACK "HAZLO TÚ MISMO"</h3>
@@ -261,12 +261,11 @@
         let linkActual = "";
         let planActual = "";
 
-        // Al hacer clic en un botón, abrimos la ventana y guardamos qué plan es
         function abrirModal(link, plan) {
             linkActual = link;
             planActual = plan;
-            document.getElementById('usuarioDiscord').value = ''; // Vaciar la casilla
-            document.getElementById('btnPagar').innerText = "IR A PAGAR"; // Resetear texto botón
+            document.getElementById('usuarioDiscord').value = ''; 
+            document.getElementById('btnPagar').innerText = "IR A PAGAR"; 
             document.getElementById('pagoModal').style.display = 'flex';
         }
 
@@ -274,31 +273,30 @@
             document.getElementById('pagoModal').style.display = 'none';
         }
 
-        // Función que se ejecuta al darle al botón azul "IR A PAGAR" dentro de la ventana
         async function procesarPago() {
             const discordVal = document.getElementById('usuarioDiscord').value;
             
-            // Si no ha puesto el Discord, le soltamos un error y no le dejamos pagar
             if(discordVal.trim() === "") {
                 alert("❌ ERROR: ¡Escribe tu usuario de Discord antes de pagar!");
                 return;
             }
 
-            // Cambiamos el botón visualmente
             document.getElementById('btnPagar').innerText = "Cargando...";
 
-            // Guardamos al cliente en tu base de datos Supabase
-            const { data, error } = await supabase
-                .from('clientes')
-                .insert([
-                    { email: discordVal, plan: planActual, pago_confirmado: false }
-                ]);
+            try {
+                const { data, error } = await supabase
+                    .from('clientes')
+                    .insert([
+                        { email: discordVal, plan: planActual, pago_confirmado: false }
+                    ]);
 
-            if (error) {
-                console.error("Error al guardar:", error);
+                if (error) {
+                    console.error("Error al guardar:", error);
+                }
+            } catch (err) {
+                console.error("Error de conexión:", err);
             }
 
-            // Lo mandamos al checkout de Stripe para que suelte la pasta
             window.location.href = linkActual;
         }
     </script>
