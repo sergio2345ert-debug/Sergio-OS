@@ -103,6 +103,7 @@
             padding: 40px; width: 85%; max-width: 400px; text-align: center;
         }
 
+        /* ESTILOS PARA LA CASILLA Y EL AVISO ROJO */
         .input-discord {
             width: 85%; padding: 15px; margin-bottom: 20px; border-radius: 8px; 
             border: 2px solid #00f2fe; background: #01060f; color: white; 
@@ -114,7 +115,6 @@
             box-shadow: 0 0 15px rgba(0, 242, 254, 0.5);
         }
 
-        /* ESTILO AGRESIVO ROJO */
         .alert-agresivo {
             background: rgba(255, 0, 0, 0.15);
             border: 2px solid #ff0000;
@@ -164,7 +164,7 @@
         <span class="section-tag">NUESTROS SERVICIOS</span>
         <h2 class="section-title">Elige tu Optimización</h2>
 
-        <!-- PRODUCTOS -->
+        <!-- PRODUCTO 1 -->
         <div class="card">
             <div class="card-icon">📁</div>
             <h3 class="card-title">PACK "HAZLO TÚ MISMO"</h3>
@@ -179,6 +179,7 @@
             <button onclick="abrirModal('https://buy.stripe.com/dRm6oGcy3cjEa4PfKMd7q02', 'PACK 5€')" class="btn-buy">COMPRAR AHORA</button>
         </div>
 
+        <!-- PRODUCTO 2 -->
         <div class="card">
             <div class="card-icon">⚙️</div>
             <h3 class="card-title">ADVANCED TWEAK</h3>
@@ -193,6 +194,7 @@
             <button onclick="abrirModal('https://buy.stripe.com/aFa3cu2Xt2J4gtd1TWd7q03', 'ADVANCED 10€')" class="btn-buy">COMPRAR AHORA</button>
         </div>
 
+        <!-- PRODUCTO 3 -->
         <div class="card vip">
             <div class="badge-pro">🔥 MÁS VENDIDO</div>
             <div class="card-icon">🚀</div>
@@ -208,6 +210,7 @@
             <button onclick="abrirModal('https://buy.stripe.com/fZu5kCfKfdnIa4PcyAd7q04', 'VIP 20€')" class="btn-buy gold">COMPRAR AHORA</button>
         </div>
 
+        <!-- PRODUCTO 4 -->
         <div class="card">
             <div class="card-icon">🛡️</div>
             <h3 class="card-title">SEGURO DE MANTENIMIENTO</h3>
@@ -228,7 +231,7 @@
         </footer>
     </div>
 
-    <!-- VENTANA MODAL DE PAGO CON INPUT DE DISCORD -->
+    <!-- VENTANA MODAL DE PAGO (ACTUALIZADA) -->
     <div id="pagoModal" class="modal-overlay">
         <div class="modal-content">
             <h3 style="font-family: 'Orbitron'; margin-bottom: 10px; color: white;">PAGO SEGURO</h3>
@@ -261,6 +264,7 @@
         let linkActual = "";
         let planActual = "";
 
+        // Abrir la ventana modal y guardar el plan
         function abrirModal(link, plan) {
             linkActual = link;
             planActual = plan;
@@ -273,6 +277,7 @@
             document.getElementById('pagoModal').style.display = 'none';
         }
 
+        // Procesar la base de datos y mandar a Stripe
         async function procesarPago() {
             const discordVal = document.getElementById('usuarioDiscord').value;
             
@@ -297,6 +302,7 @@
                 console.error("Error de conexión:", err);
             }
 
+            // Redirigir a Stripe
             window.location.href = linkActual;
         }
     </script>
