@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sergio-OS | Optimización Extrema para Gaming</title>
+    <style>
+        /* Estilos generales (Modo Oscuro Gamer) */
+        html { scroll-behavior: smooth; }
+        body { 
+            background-color: #0a0a0a; 
+            color: #ffffff; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+        }
+        header { 
+            padding: 50px 20px; 
+            text-align: center; 
+            border-bottom: 2px solid #0051ff; 
+            background: #111;
+        }
+        h1 { 
+            font-size: 3.5rem; 
+            margin: 0; 
+            color: #0051ff; 
+            text-transform: uppercase; 
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(0, 81, 255, 0.5);
+        }
+        header p {
+            color: #888;
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        /* Sección principal */
+        .hero { 
+            text-align: center; 
+            padding: 80px 20px; 
+        }
+        .hero h2 { 
+            font-size: 3rem; 
+            margin-bottom: 15px; 
+        }
+        .hero p { 
+            font-size: 1.5rem; 
+            color: #ccc; 
+            margin-bottom: 40px; 
+        }
+
+        /* Botones */
+        .btn { 
+            background: #0051ff; 
+            color: white; 
+            padding: 15px 40px; 
+            text-decoration: none; 
+            font-size: 1.2rem; 
+            border-radius: 8px; 
+            font-weight: bold; 
+            text-transform: uppercase;
+            transition: all 0.3s ease; 
+            display: inline-block;
+            cursor: pointer;
+            border: none;
+        }
+        .btn:hover { 
+            background: #003bb5; 
+            box-shadow: 0 0 20px #0051ff; 
+            transform: scale(1.05);
+        }
+
+        /* Cajas de Precios */
+        .plans { 
+            display: flex; 
+            justify-content: center; 
+            gap: 30px; 
+            padding: 40px 20px 80px; 
+            flex-wrap: wrap; 
+        }
+        .card { 
+            background: #151515; 
+            padding: 40px 30px; 
+            border-radius: 12px; 
+            width: 300px; 
+            text-align: center; 
+            border: 1px solid #333; 
+            transition: 0.3s;
+        }
+        .card:hover {
+            border-color: #0051ff;
+            box-shadow: 0 0 15px rgba(0, 81, 255, 0.2);
+        }
+        .card.vip {
+            border: 2px solid #0051ff;
+            position: relative;
+        }
+        .badge {
+            background: #0051ff;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .card h3 { 
+            margin-top: 0; 
+            font-size: 1.8rem;
+        }
+        .price { 
+            font-size: 2.5rem; 
+            font-weight: bold; 
+            margin: 20px 0; 
+            color: #0051ff;
+        }
+        ul { 
+            list-style: none; 
+            padding: 0; 
+            text-align: left; 
+            margin-bottom: 30px;
+        }
+        li { 
+            margin-bottom: 12px; 
+            color: #ddd;
+        }
+        li::before { 
+            content: '✅ '; 
+        }
+
+        /* Sección de Pago Directo */
+        .pago-section {
+            background: #111;
+            padding: 50px 20px;
+            text-align: center;
+            border-top: 2px solid #333;
+        }
+        .pago-box {
+            background: #1a1a1a;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #0051ff;
+        }
+        .pago-box h3 {
+            color: #0051ff;
+            font-size: 2rem;
+            margin-top: 0;
+        }
+        .pago-method {
+            background: #0a0a0a;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            border: 1px solid #333;
+        }
+        .discord-warning {
+            color: #ff3333;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Sergio-OS</h1>
+        <p>El Tweak Definitivo para exprimir tu PC</p>
+    </header>
+
+    <section class="hero">
+        <h2>DEJA DE JUGAR A TIRONES</h2>
+        <p>+300 FPS y 0 Input Delay. O lo compras, o sigues dando pena en el lobby.</p>
+        <a href="#pagar" class="btn">Ver Métodos de Pago</a>
+    </section>
+
+    <section class="plans">
+        <!-- Paquete Básico -->
+        <div class="card">
+            <h3>Basic Tweak</h3>
+            <div class="price">7,50€</div>
+            <ul>
+                <li>Limpieza de Windows</li>
+                <li>Boost de FPS (Básico)</li>
+                <li>Reducción de Delay</li>
+            </ul>
+            <a href="#pagar" class="btn" style="width: 80%; padding: 12px;">Comprar Básico</a>
+        </div>
+
+        <!-- Paquete Advanced -->
+        <div class="card">
+            <h3>Advanced Tweak</h3>
+            <div class="price">19,99€</div>
+            <ul>
+                <li>FPS al máximo (+300)</li>
+                <li>0 Input Delay</li>
+                <li>Optimización de Red (Ping)</li>
+                <li>Limpieza Profunda</li>
+            </ul>
+            <a href="#pagar" class="btn" style="width: 80%; padding: 12px;">Comprar Advanced</a>
+        </div>
+
+        <!-- Paquete VIP -->
+        <div class="card vip">
+            <div class="badge">MÁS VENDIDO</div>
+            <h3>God Mode</h3>
+            <div class="price">39,99€</div>
+            <ul>
+                <li>TODO lo del Advanced Tweak</li>
+                <li>Overclock Seguro (CPU/GPU/RAM)</li>
+                <li>Ajustes extremos de BIOS</li>
+                <li>Prioridad VIP en Discord</li>
+            </ul>
+            <a href="#pagar" class="btn" style="width: 80%; padding: 12px;">Comprar VIP</a>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE PAGOS MANUALES -->
+    <section id="pagar" class="pago-section">
+        <div class="pago-box">
+            <h3>CÓMO PAGAR TU TWEAK</h3>
+            <p>Elige tu método de pago preferido y envía el dinero del paquete que hayas elegido:</p>
+            
+            <div class="pago-method">
+                📲 <strong>BIZUM:</strong> Envía el dinero al número <br>
+                <span style="font-size: 1.8rem; font-weight: bold; color: #0051ff;">663 252 932</span><br>
+                <span style="font-size: 0.9rem; color: #888;">(Pon tu usuario de Discord en el concepto)</span>
+            </div>
+
+            <div class="pago-method">
+                💳 <strong>PAYPAL:</strong> Haz clic en el enlace para enviar el pago:<br>
+                <a href="TU_LINK_DE_PAYPAL_AQUI" target="_blank" style="color: #0051ff; font-weight: bold; text-decoration: none;">👉 Pagar con PayPal 👈</a>
+            </div>
+
+            <p class="discord-warning">⚠️ MUY IMPORTANTE ⚠️</p>
+            <p>Una vez hecho el pago, entra a mi Discord, abre un ticket enseñando la captura del pago y me pongo con tu PC en el momento.</p>
+            
+            <a href="TU_LINK_DE_DISCORD_AQUI" class="btn" style="margin-top: 15px;">Entrar al Discord</a>
+        </div>
+    </section>
+
+</body>
+</html>
