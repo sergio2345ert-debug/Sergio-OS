@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sergio OS - Optimización Extrema</title>
+    <!-- Importamos fuentes futuristas de Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
     <style>
         /* BASE Y ESTILOS GENERALES */
@@ -75,27 +76,51 @@
             text-transform: uppercase;
         }
 
-        /* BOTONES SOCIALES Y STATS */
+        /* BOTONES SOCIALES Y STATS (MODO AGRESIVO) */
         .social-buttons {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            margin: 30px 0;
+            gap: 25px;
+            margin: 45px 0;
+            flex-wrap: wrap; 
         }
 
         .btn-social {
-            padding: 12px 30px;
-            border-radius: 8px;
+            padding: 18px 50px;
+            border-radius: 12px;
             text-decoration: none;
             color: white;
-            font-weight: bold;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-            transition: 0.3s;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
         }
 
-        .btn-tiktok { background: #111; border: 1px solid #333; }
-        .btn-discord { background: #5865F2; }
+        .btn-tiktok { 
+            background: #0a0a0a; 
+            border: 2px solid #00f2fe; 
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+        }
+        .btn-tiktok:hover {
+            background: #00f2fe;
+            color: #000;
+            box-shadow: 0 0 35px rgba(0, 242, 254, 0.8);
+            transform: scale(1.08) translateY(-5px);
+        }
+
+        .btn-discord { 
+            background: #5865F2; 
+            border: 2px solid #5865F2;
+            box-shadow: 0 0 15px rgba(88, 101, 242, 0.4);
+        }
+        .btn-discord:hover { 
+            background: #4752c4;
+            border-color: #4752c4;
+            box-shadow: 0 0 35px rgba(88, 101, 242, 0.9);
+            transform: scale(1.08) translateY(-5px);
+        }
 
         .stats-grid {
             display: grid;
@@ -336,14 +361,16 @@
 <body>
 
     <div class="container">
+        <!-- CABECERA -->
         <header>
             <div class="top-tag">RENDIMIENTO EXTREMO · PC GAMING</div>
             <h1 class="logo">SERGIO <br> OS</h1>
             <p class="subtitle">Optimizaciones de Fortnite · Poca latencia · Aumento de FPS</p>
             
             <div class="social-buttons">
-                <a href="#" class="btn-social btn-tiktok">TIKTOK</a>
-                <a href="#" class="btn-social btn-discord">DISCORD</a>
+                <!-- PON TUS ENLACES REALES DONDE PONE '#' -->
+                <a href="#" class="btn-social btn-tiktok" target="_blank">TIKTOK</a>
+                <a href="#" class="btn-social btn-discord" target="_blank">DISCORD</a>
             </div>
 
             <div class="stats-grid">
@@ -358,12 +385,14 @@
             </div>
         </header>
 
+        <!-- SERVICIOS -->
         <section class="services">
             <div class="section-tag">NUESTROS SERVICIOS</div>
             <h2>Elige tu Optimización</h2>
 
             <div class="cards-container">
                 
+                <!-- CARD 1: Hazlo tú mismo -->
                 <div class="card">
                     <div class="icon">📁</div>
                     <h3 class="card-title">PACK "HAZLO TÚ MISMO"</h3>
@@ -380,6 +409,7 @@
                     <a href="#pagar" class="btn-buy btn-cyan">COMPRAR AHORA</a>
                 </div>
 
+                <!-- CARD 2: Advanced Tweak -->
                 <div class="card">
                     <div class="icon">⚙️</div>
                     <h3 class="card-title">ADVANCED TWEAK</h3>
@@ -397,6 +427,7 @@
                     <a href="#pagar" class="btn-buy btn-cyan">COMPRAR AHORA</a>
                 </div>
 
+                <!-- CARD 3: VIP (Destacada) -->
                 <div class="card vip">
                     <div class="badge-vip">🔥 MÁS VENDIDO</div>
                     <div class="icon">🚀</div>
@@ -419,6 +450,7 @@
             </div>
         </section>
 
+        <!-- SECCIÓN DE PAGOS (BIZUM/PAYPAL) -->
         <section id="pagar" class="pago-section">
             <h3>💳 FINALIZA TU COMPRA</h3>
             <p style="color: #ccc; font-size: 1.1rem; margin-bottom: 30px;">
@@ -435,7 +467,8 @@
             <div class="metodo-pago">
                 <span style="font-size: 1.5rem;">💙 <strong>PAGO POR PAYPAL</strong></span><br>
                 <span style="color: #888;">Si no tienes Bizum, usa este enlace seguro:</span><br><br>
-                <a href="TU_LINK_DE_PAYPAL" target="_blank" class="btn-buy btn-cyan" style="display: inline-block; width: auto; padding: 10px 30px;">Pagar con PayPal</a>
+                <!-- CAMBIA ESTE ENLACE POR TU PAYPAL REAL -->
+                <a href="TU_LINK_DE_PAYPAL_AQUI" target="_blank" class="btn-buy btn-cyan" style="display: inline-block; width: auto; padding: 10px 30px;">Pagar con PayPal</a>
             </div>
 
             <p class="warning">⚠️ IMPORTANTE: PASO FINAL ⚠️</p>
@@ -444,6 +477,7 @@
             </p>
         </section>
 
+        <!-- FOOTER -->
         <footer>
             <p>SERGIO OS</p>
             <p style="font-size: 0.8rem;">© 2026 Sergio OS · Optimizaciones Fortnite Pro</p>
