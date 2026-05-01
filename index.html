@@ -1,310 +1,442 @@
 <!DOCTYPE html>
+
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sergio OS - Optimización Pro</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #01060f;
-            --card-bg: #030d1d;
-            --cyan: #00f2fe;
-            --gold: #ffcc00;
-            --text-main: #ffffff;
-            --text-muted: #6b7a90;
-        }
 
-        body {
-            background-color: var(--bg-color);
-            background-image: radial-gradient(circle at top, #061630, transparent 60%);
-            color: var(--text-main);
-            font-family: 'Rajdhani', sans-serif;
-            margin: 0; padding: 0;
-            display: flex; flex-direction: column; align-items: center;
-        }
+<meta charset="UTF-8">
 
-        .container { width: 95%; max-width: 500px; padding: 20px 0; }
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        .top-badge {
-            border: 1px solid rgba(0, 242, 254, 0.3); padding: 8px 20px; border-radius: 5px;
-            font-family: 'Orbitron'; font-size: 0.7rem; color: var(--cyan);
-            letter-spacing: 3px; margin-bottom: 30px; text-align: center;
-            background: rgba(0, 242, 254, 0.05);
-        }
+<title>Sergio OS - Optimización Pro</title>
 
-        .hero-logo {
-            font-family: 'Orbitron'; font-size: 3.5rem; text-align: center; margin: 0;
-            background: linear-gradient(to bottom, #ffffff, var(--cyan));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
 
-        .hero-sub {
-            text-align: center; font-size: 0.8rem; letter-spacing: 4px;
-            color: var(--text-muted); margin-top: 10px; font-weight: bold;
-        }
+<style>
 
-        .social-grid { display: flex; flex-direction: column; gap: 10px; margin: 30px 0; }
-        .btn-social {
-            text-decoration: none; color: white; padding: 15px; border-radius: 10px;
-            display: flex; justify-content: center; align-items: center; gap: 10px;
-            font-weight: bold; font-family: 'Orbitron'; font-size: 0.9rem;
-        }
-        .btn-tiktok { background: #111; border: 1px solid #333; }
-        .btn-discord { background: #5865F2; }
+:root {
 
-        .stats-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 40px; }
-        .stat-box {
-            background: rgba(3, 13, 29, 0.5); border: 1px solid rgba(0, 242, 254, 0.1);
-            padding: 20px; border-radius: 10px; text-align: center;
-        }
-        .stat-num { font-size: 2.2rem; font-family: 'Orbitron'; color: var(--cyan); display: block; }
-        .stat-label { font-size: 0.7rem; color: var(--text-muted); letter-spacing: 2px; }
+--bg-color: #01060f;
 
-        .section-tag { color: var(--text-muted); font-family: 'Orbitron'; font-size: 0.7rem; letter-spacing: 4px; text-align: center; display: block; }
-        .section-title { font-size: 2.2rem; font-family: 'Orbitron'; text-align: center; margin: 10px 0 30px 0; }
+--card-bg: #030d1d;
 
-        .card {
-            background: var(--card-bg); border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 15px; padding: 30px; margin-bottom: 25px; position: relative;
-        }
-        .card.vip { border: 1px solid #ffcc0044; background: linear-gradient(145deg, #030d1d, #09152b); }
-        
-        .card-icon { width: 50px; margin-bottom: 20px; font-size: 2rem; }
-        .card-title { font-family: 'Orbitron'; font-size: 1.2rem; margin: 0; text-transform: uppercase; }
-        .card-price { font-family: 'Orbitron'; font-size: 3rem; color: var(--cyan); margin: 5px 0; }
-        .card.vip .card-price { color: var(--gold); }
-        
-        .card-type { color: var(--text-muted); font-size: 0.8rem; display: block; margin-bottom: 20px; }
-        .card-desc { font-style: italic; color: #8b9ab3; font-size: 0.9rem; margin-bottom: 25px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; }
+--cyan: #00f2fe;
 
-        .feature-list { list-style: none; padding: 0; margin: 0 0 30px 0; }
-        .feature-list li { margin-bottom: 12px; font-size: 0.95rem; display: flex; align-items: center; gap: 10px; }
-        .feature-list li::before { content: '✓'; color: var(--cyan); font-weight: bold; }
+--gold: #ffcc00;
 
-        .btn-buy {
-            display: block; width: 100%; padding: 18px; border-radius: 10px; text-decoration: none;
-            text-align: center; font-family: 'Orbitron'; font-weight: bold; font-size: 1rem;
-            background: linear-gradient(to right, #0072ff, #00c6ff); color: white; cursor: pointer; border: none;
-        }
-        .btn-buy.gold { background: linear-gradient(to right, #d4af37, #ffcc00); color: black; }
+--text-main: #ffffff;
 
-        .badge-pro {
-            position: absolute; top: 20px; right: 20px; background: linear-gradient(to right, #ff4b2b, #ff416c);
-            padding: 5px 12px; border-radius: 5px; font-size: 0.6rem; font-family: 'Orbitron';
-        }
+--text-muted: #6b7a90;
 
-        .modal-overlay {
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.95); z-index: 1000; justify-content: center; align-items: center;
-        }
-        .modal-content {
-            background: var(--card-bg); border: 1px solid var(--cyan); border-radius: 15px;
-            padding: 40px; width: 85%; max-width: 400px; text-align: center;
-        }
+}
 
-        /* ESTILOS PARA LA CASILLA Y EL AVISO ROJO */
-        .input-discord {
-            width: 85%; padding: 15px; margin-bottom: 20px; border-radius: 8px; 
-            border: 2px solid #00f2fe; background: #01060f; color: white; 
-            font-family: 'Orbitron'; text-align: center; font-size: 1rem;
-            outline: none;
-        }
 
-        .input-discord:focus {
-            box-shadow: 0 0 15px rgba(0, 242, 254, 0.5);
-        }
 
-        .alert-agresivo {
-            background: rgba(255, 0, 0, 0.15);
-            border: 2px solid #ff0000;
-            color: #ff3333;
-            font-weight: 900;
-            font-size: 1.1rem;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 25px;
-            text-transform: uppercase;
-            animation: latidoPeligro 1.5s infinite; 
-        }
+body {
 
-        @keyframes latidoPeligro {
-            0% { transform: scale(1); box-shadow: 0 0 10px rgba(255,0,0,0.4); }
-            50% { transform: scale(1.03); box-shadow: 0 0 25px rgba(255,0,0,0.8); }
-            100% { transform: scale(1); box-shadow: 0 0 10px rgba(255,0,0,0.4); }
-        }
+background-color: var(--bg-color);
 
-        footer { text-align: center; padding: 50px 0; color: var(--text-muted); font-size: 0.8rem; }
-    </style>
+background-image: radial-gradient(circle at top, #061630, transparent 60%);
+
+color: var(--text-main);
+
+font-family: 'Rajdhani', sans-serif;
+
+margin: 0; padding: 0;
+
+display: flex; flex-direction: column; align-items: center;
+
+}
+
+
+
+.container { width: 95%; max-width: 500px; padding: 20px 0; }
+
+
+
+.top-badge {
+
+border: 1px solid rgba(0, 242, 254, 0.3); padding: 8px 20px; border-radius: 5px;
+
+font-family: 'Orbitron'; font-size: 0.7rem; color: var(--cyan);
+
+letter-spacing: 3px; margin-bottom: 30px; text-align: center;
+
+background: rgba(0, 242, 254, 0.05);
+
+}
+
+
+
+.hero-logo {
+
+font-family: 'Orbitron'; font-size: 3.5rem; text-align: center; margin: 0;
+
+background: linear-gradient(to bottom, #ffffff, var(--cyan));
+
+-webkit-background-clip: text; -webkit-text-fill-color: transparent;
+
+}
+
+
+
+.hero-sub {
+
+text-align: center; font-size: 0.8rem; letter-spacing: 4px;
+
+color: var(--text-muted); margin-top: 10px; font-weight: bold;
+
+}
+
+
+
+.social-grid { display: flex; flex-direction: column; gap: 10px; margin: 30px 0; }
+
+.btn-social {
+
+text-decoration: none; color: white; padding: 15px; border-radius: 10px;
+
+display: flex; justify-content: center; align-items: center; gap: 10px;
+
+font-weight: bold; font-family: 'Orbitron'; font-size: 0.9rem;
+
+}
+
+.btn-tiktok { background: #111; border: 1px solid #333; }
+
+.btn-discord { background: #5865F2; }
+
+
+
+.stats-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 40px; }
+
+.stat-box {
+
+background: rgba(3, 13, 29, 0.5); border: 1px solid rgba(0, 242, 254, 0.1);
+
+padding: 20px; border-radius: 10px; text-align: center;
+
+}
+
+.stat-num { font-size: 2.2rem; font-family: 'Orbitron'; color: var(--cyan); display: block; }
+
+.stat-label { font-size: 0.7rem; color: var(--text-muted); letter-spacing: 2px; }
+
+
+
+.section-tag { color: var(--text-muted); font-family: 'Orbitron'; font-size: 0.7rem; letter-spacing: 4px; text-align: center; display: block; }
+
+.section-title { font-size: 2.2rem; font-family: 'Orbitron'; text-align: center; margin: 10px 0 30px 0; }
+
+
+
+.card {
+
+background: var(--card-bg); border: 1px solid rgba(255,255,255,0.05);
+
+border-radius: 15px; padding: 30px; margin-bottom: 25px; position: relative;
+
+}
+
+.card.vip { border: 1px solid #ffcc0044; background: linear-gradient(145deg, #030d1d, #09152b); }
+
+
+.card-icon { width: 50px; margin-bottom: 20px; font-size: 2rem; }
+
+.card-title { font-family: 'Orbitron'; font-size: 1.2rem; margin: 0; text-transform: uppercase; }
+
+.card-price { font-family: 'Orbitron'; font-size: 3rem; color: var(--cyan); margin: 5px 0; }
+
+.card.vip .card-price { color: var(--gold); }
+
+
+.card-type { color: var(--text-muted); font-size: 0.8rem; display: block; margin-bottom: 20px; }
+
+.card-desc { font-style: italic; color: #8b9ab3; font-size: 0.9rem; margin-bottom: 25px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; }
+
+
+
+.feature-list { list-style: none; padding: 0; margin: 0 0 30px 0; }
+
+.feature-list li { margin-bottom: 12px; font-size: 0.95rem; display: flex; align-items: center; gap: 10px; }
+
+.feature-list li::before { content: '✓'; color: var(--cyan); font-weight: bold; }
+
+
+
+.btn-buy {
+
+display: block; width: 100%; padding: 18px; border-radius: 10px; text-decoration: none;
+
+text-align: center; font-family: 'Orbitron'; font-weight: bold; font-size: 1rem;
+
+background: linear-gradient(to right, #0072ff, #00c6ff); color: white; cursor: pointer; border: none;
+
+}
+
+.btn-buy.gold { background: linear-gradient(to right, #d4af37, #ffcc00); color: black; }
+
+
+
+.badge-pro {
+
+position: absolute; top: 20px; right: 20px; background: linear-gradient(to right, #ff4b2b, #ff416c);
+
+padding: 5px 12px; border-radius: 5px; font-size: 0.6rem; font-family: 'Orbitron';
+
+}
+
+
+
+.modal-overlay {
+
+display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+
+background: rgba(0, 0, 0, 0.95); z-index: 1000; justify-content: center; align-items: center;
+
+}
+
+.modal-content {
+
+background: var(--card-bg); border: 1px solid var(--cyan); border-radius: 15px;
+
+padding: 40px; width: 85%; max-width: 400px; text-align: center;
+
+}
+
+
+
+footer { text-align: center; padding: 50px 0; color: var(--text-muted); font-size: 0.8rem; }
+
+</style>
+
 </head>
+
 <body>
 
-    <div class="container">
-        <div class="top-badge">RENDIMIENTO EXTREMO · PC GAMING</div>
 
-        <h1 class="hero-logo">SERGIO OS</h1>
-        <p class="hero-sub">OPTIMIZACIONES DE FORTNITE · POCA LATENCIA · AUMENTO DE FPS</p>
 
-        <div class="social-grid">
-            <a href="https://www.tiktok.com/@sergioopti" target="_blank" class="btn-social btn-tiktok">TIKTOK</a>
-            <a href="https://discord.gg/543yxFagfw" target="_blank" class="btn-social btn-discord">DISCORD</a>
-        </div>
+<div class="container">
 
-        <div class="stats-row">
-            <div class="stat-box">
-                <span class="stat-num">491+</span>
-                <span class="stat-label">CLIENTES</span>
-            </div>
-            <div class="stat-box">
-                <span class="stat-num">196+</span>
-                <span class="stat-label">FPS GANADOS</span>
-            </div>
-        </div>
+<div class="top-badge">RENDIMIENTO EXTREMO · PC GAMING</div>
 
-        <span class="section-tag">NUESTROS SERVICIOS</span>
-        <h2 class="section-title">Elige tu Optimización</h2>
 
-        <!-- PRODUCTO 1 -->
-        <div class="card">
-            <div class="card-icon">📁</div>
-            <h3 class="card-title">PACK "HAZLO TÚ MISMO"</h3>
-            <div class="card-price">5€</div>
-            <span class="card-type">Pago único</span>
-            <p class="card-desc">La fórmula secreta para presupuestos ajustados.</p>
-            <ul class="feature-list">
-                <li>Link de descarga con 3 scripts privados</li>
-                <li>ISO exclusiva de Sergio OS</li>
-                <li>Instálalo a tu ritmo</li>
-            </ul>
-            <button onclick="abrirModal('https://buy.stripe.com/dRm6oGcy3cjEa4PfKMd7q02', 'PACK 5€')" class="btn-buy">COMPRAR AHORA</button>
-        </div>
 
-        <!-- PRODUCTO 2 -->
-        <div class="card">
-            <div class="card-icon">⚙️</div>
-            <h3 class="card-title">ADVANCED TWEAK</h3>
-            <div class="card-price">10€</div>
-            <span class="card-type">Pago único</span>
-            <p class="card-desc">Inyección rápida de FPS sin formatear.</p>
-            <ul class="feature-list">
-                <li>Conexión remota a tu PC</li>
-                <li>Limpieza profunda de Windows</li>
-                <li>Ajuste de drivers avanzado</li>
-            </ul>
-            <button onclick="abrirModal('https://buy.stripe.com/aFa3cu2Xt2J4gtd1TWd7q03', 'ADVANCED 10€')" class="btn-buy">COMPRAR AHORA</button>
-        </div>
+<h1 class="hero-logo">SERGIO OS</h1>
 
-        <!-- PRODUCTO 3 -->
-        <div class="card vip">
-            <div class="badge-pro">🔥 MÁS VENDIDO</div>
-            <div class="card-icon">🚀</div>
-            <h3 class="card-title">ULTIMATE TWEAK VIP</h3>
-            <div class="card-price">20€</div>
-            <span class="card-type">La optimización de los PROS</span>
-            <p class="card-desc">Reconstrucción total. Cero Delay Garantizado.</p>
-            <ul class="feature-list">
-                <li>Formateo + instalación Sergio OS V2</li>
-                <li>Overclock / PBO en BIOS</li>
-                <li>Ratón y teclado a velocidad de la luz</li>
-            </ul>
-            <button onclick="abrirModal('https://buy.stripe.com/fZu5kCfKfdnIa4PcyAd7q04', 'VIP 20€')" class="btn-buy gold">COMPRAR AHORA</button>
-        </div>
+<p class="hero-sub">OPTIMIZACIONES DE FORTNITE · POCA LATENCIA · AUMENTO DE FPS</p>
 
-        <!-- PRODUCTO 4 -->
-        <div class="card">
-            <div class="card-icon">🛡️</div>
-            <h3 class="card-title">SEGURO DE MANTENIMIENTO</h3>
-            <div class="card-price">5€</div>
-            <span class="card-type">/ Mes · Solo clientes VIP</span>
-            <p class="card-desc">Tus FPS no bajan NUNCA. Garantizado.</p>
-            <ul class="feature-list">
-                <li>Conexión de 15 min al mes</li>
-                <li>Actualización de drivers</li>
-                <li>Mantenimiento de FPS constante</li>
-            </ul>
-            <button onclick="abrirModal('https://buy.stripe.com/7sYcN42Xt2J4ccX2Y0d7q01', 'MANTENIMIENTO 5€')" class="btn-buy">SUSCRIBIRME</button>
-        </div>
 
-        <footer>
-            <p>© 2026 Sergio OS · Optimizaciones Fortnite Pro</p>
-            <p>TIKTOK · DISCORD</p>
-        </footer>
-    </div>
 
-    <!-- VENTANA MODAL DE PAGO (ACTUALIZADA) -->
-    <div id="pagoModal" class="modal-overlay">
-        <div class="modal-content">
-            <h3 style="font-family: 'Orbitron'; margin-bottom: 10px; color: white;">PAGO SEGURO</h3>
-            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">Pon tu Discord para identificarte en el pago.</p>
-            
-            <!-- CAJA PARA ESCRIBIR EL DISCORD -->
-            <input type="text" id="usuarioDiscord" class="input-discord" placeholder="Tu usuario de Discord" required>
+<div class="social-grid">
 
-            <!-- AVISO ROJO AGRESIVO -->
-            <div class="alert-agresivo">
-                ⚠️ ¡OBLIGATORIO! ⚠️<br><br>
-                TRAS PAGAR, ABRE UN TICKET EN DISCORD CON LA CAPTURA DEL PAGO.<br>
-                SIN CAPTURA NO SE ENTREGA EL TWEAK.
-            </div>
+<a href="#" class="btn-social btn-tiktok">TIKTOK</a>
 
-            <button onclick="procesarPago()" id="btnPagar" class="btn-buy">IR A PAGAR</button>
-            <p onclick="cerrarModal()" style="margin-top: 25px; cursor: pointer; color: var(--text-muted); font-size: 0.8rem;">Cerrar ventana</p>
-        </div>
-    </div>
+<a href="https://discord.gg/543yxFagfw" class="btn-social btn-discord">DISCORD</a>
 
-    <!-- SCRIPT DE SUPABASE (BASE DE DATOS) -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    
-    <!-- LÓGICA DE LA VENTANA Y EL PAGO -->
-    <script>
-        const supabaseUrl = 'https://gsvosybjtepglohztxix.supabase.co';
-        const supabaseKey = 'sb_publishable_vz5YoWqGlj2DPlGN0pms1A_yppUeNB2';
-        const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+</div>
 
-        let linkActual = "";
-        let planActual = "";
 
-        // Abrir la ventana modal y guardar el plan
-        function abrirModal(link, plan) {
-            linkActual = link;
-            planActual = plan;
-            document.getElementById('usuarioDiscord').value = ''; 
-            document.getElementById('btnPagar').innerText = "IR A PAGAR"; 
-            document.getElementById('pagoModal').style.display = 'flex';
-        }
 
-        function cerrarModal() {
-            document.getElementById('pagoModal').style.display = 'none';
-        }
+<div class="stats-row">
 
-        // Procesar la base de datos y mandar a Stripe
-        async function procesarPago() {
-            const discordVal = document.getElementById('usuarioDiscord').value;
-            
-            if(discordVal.trim() === "") {
-                alert("❌ ERROR: ¡Escribe tu usuario de Discord antes de pagar!");
-                return;
-            }
+<div class="stat-box">
 
-            document.getElementById('btnPagar').innerText = "Cargando...";
+<span class="stat-num">491+</span>
 
-            try {
-                const { data, error } = await supabase
-                    .from('clientes')
-                    .insert([
-                        { email: discordVal, plan: planActual, pago_confirmado: false }
-                    ]);
+<span class="stat-label">CLIENTES</span>
 
-                if (error) {
-                    console.error("Error al guardar:", error);
-                }
-            } catch (err) {
-                console.error("Error de conexión:", err);
-            }
+</div>
 
-            // Redirigir a Stripe
-            window.location.href = linkActual;
-        }
-    </script>
+<div class="stat-box">
+
+<span class="stat-num">196+</span>
+
+<span class="stat-label">FPS GANADOS</span>
+
+</div>
+
+</div>
+
+
+
+<span class="section-tag">NUESTROS SERVICIOS</span>
+
+<h2 class="section-title">Elige tu Optimización</h2>
+
+
+
+<!-- PRODUCTO 1 -->
+
+<div class="card">
+
+<div class="card-icon">📁</div>
+
+<h3 class="card-title">PACK "HAZLO TÚ MISMO"</h3>
+
+<div class="card-price">5€</div>
+
+<span class="card-type">Pago único</span>
+
+<p class="card-desc">La fórmula secreta para presupuestos ajustados.</p>
+
+<ul class="feature-list">
+
+<li>Link de descarga con 3 scripts privados</li>
+
+<li>ISO exclusiva de Sergio OS</li>
+
+<li>Instálalo a tu ritmo</li>
+
+</ul>
+
+<button onclick="abrirModal('https://buy.stripe.com/dRm6oGcy3cjEa4PfKMd7q02')" class="btn-buy">COMPRAR AHORA</button>
+
+</div>
+
+
+
+<!-- PRODUCTO 2 -->
+
+<div class="card">
+
+<div class="card-icon">⚙️</div>
+
+<h3 class="card-title">ADVANCED TWEAK</h3>
+
+<div class="card-price">10€</div>
+
+<span class="card-type">Pago único</span>
+
+<p class="card-desc">Inyección rápida de FPS sin formatear.</p>
+
+<ul class="feature-list">
+
+<li>Conexión remota a tu PC</li>
+
+<li>Limpieza profunda de Windows</li>
+
+<li>Ajuste de drivers avanzado</li>
+
+</ul>
+
+<button onclick="abrirModal('https://buy.stripe.com/aFa3cu2Xt2J4gtd1TWd7q03')" class="btn-buy">COMPRAR AHORA</button>
+
+</div>
+
+
+
+<!-- PRODUCTO 3 -->
+
+<div class="card vip">
+
+<div class="badge-pro">🔥 MÁS VENDIDO</div>
+
+<div class="card-icon">🚀</div>
+
+<h3 class="card-title">ULTIMATE TWEAK VIP</h3>
+
+<div class="card-price">20€</div>
+
+<span class="card-type">La optimización de los PROS</span>
+
+<p class="card-desc">Reconstrucción total. Cero Delay Garantizado.</p>
+
+<ul class="feature-list">
+
+<li>Formateo + instalación Sergio OS V2</li>
+
+<li>Overclock / PBO en BIOS</li>
+
+<li>Ratón y teclado a velocidad de la luz</li>
+
+</ul>
+
+<button onclick="abrirModal('https://buy.stripe.com/fZu5kCfKfdnIa4PcyAd7q04')" class="btn-buy gold">COMPRAR AHORA</button>
+
+</div>
+
+
+
+<!-- PRODUCTO 4 -->
+
+<div class="card">
+
+<div class="card-icon">🛡️</div>
+
+<h3 class="card-title">SEGURO DE MANTENIMIENTO</h3>
+
+<div class="card-price">5€</div>
+
+<span class="card-type">/ Mes · Solo clientes VIP</span>
+
+<p class="card-desc">Tus FPS no bajan NUNCA. Garantizado.</p>
+
+<ul class="feature-list">
+
+<li>Conexión de 15 min al mes</li>
+
+<li>Actualización de drivers</li>
+
+<li>Mantenimiento de FPS constante</li>
+
+</ul>
+
+<button onclick="abrirModal('https://buy.stripe.com/7sYcN42Xt2J4ccX2Y0d7q01')" class="btn-buy">SUSCRIBIRME</button>
+
+</div>
+
+
+
+<footer>
+
+<p>© 2026 Sergio OS · Optimizaciones Fortnite Pro</p>
+
+<p>TIKTOK · DISCORD</p>
+
+</footer>
+
+</div>
+
+
+
+<div id="pagoModal" class="modal-overlay">
+
+<div class="modal-content">
+
+<h3 style="font-family: 'Orbitron'; margin-bottom: 20px;">PAGO SEGURO</h3>
+
+<p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 30px;">Serás redirigido a Stripe para completar el pago.</p>
+
+<a id="enlaceStripe" href="#" target="_blank" class="btn-buy">PAGAR AHORA</a>
+
+<p onclick="cerrarModal()" style="margin-top: 20px; cursor: pointer; color: var(--text-muted); font-size: 0.8rem;">Cerrar ventana</p>
+
+</div>
+
+</div>
+
+
+
+<script>
+
+function abrirModal(link) {
+
+document.getElementById('enlaceStripe').href = link;
+
+document.getElementById('pagoModal').style.display = 'flex';
+
+}
+
+function cerrarModal() {
+
+document.getElementById('pagoModal').style.display = 'none';
+
+}
+
+</script>
+
 </body>
+
 </html>
+
