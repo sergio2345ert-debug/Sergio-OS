@@ -3,251 +3,452 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sergio-OS | Optimización Extrema para Gaming</title>
+    <title>Sergio OS - Optimización Extrema</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
     <style>
-        /* Estilos generales (Modo Oscuro Gamer) */
+        /* BASE Y ESTILOS GENERALES */
+        :root {
+            --bg-color: #030812;
+            --card-bg: #07101d;
+            --cyan: #00d4ff;
+            --gold: #ffcc00;
+            --orange: #ff5e00;
+            --text-main: #ffffff;
+            --text-muted: #8b9ab3;
+        }
+
         html { scroll-behavior: smooth; }
-        body { 
-            background-color: #0a0a0a; 
-            color: #ffffff; 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            margin: 0; 
-            padding: 0; 
-        }
-        header { 
-            padding: 50px 20px; 
-            text-align: center; 
-            border-bottom: 2px solid #0051ff; 
-            background: #111;
-        }
-        h1 { 
-            font-size: 3.5rem; 
-            margin: 0; 
-            color: #0051ff; 
-            text-transform: uppercase; 
-            letter-spacing: 2px;
-            text-shadow: 0 0 10px rgba(0, 81, 255, 0.5);
-        }
-        header p {
-            color: #888;
-            font-size: 1.2rem;
-            margin-top: 10px;
+        
+        body {
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(0, 212, 255, 0.05), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(0, 212, 255, 0.05), transparent 25%);
+            color: var(--text-main);
+            font-family: 'Rajdhani', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
         }
 
-        /* Sección principal */
-        .hero { 
-            text-align: center; 
-            padding: 80px 20px; 
-        }
-        .hero h2 { 
-            font-size: 3rem; 
-            margin-bottom: 15px; 
-        }
-        .hero p { 
-            font-size: 1.5rem; 
-            color: #ccc; 
-            margin-bottom: 40px; 
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
         }
 
-        /* Botones */
-        .btn { 
-            background: #0051ff; 
-            color: white; 
-            padding: 15px 40px; 
-            text-decoration: none; 
-            font-size: 1.2rem; 
-            border-radius: 8px; 
-            font-weight: bold; 
-            text-transform: uppercase;
-            transition: all 0.3s ease; 
+        /* CABECERA (HEADER) */
+        header {
+            text-align: center;
+            padding: 40px 10px;
+        }
+
+        .top-tag {
             display: inline-block;
-            cursor: pointer;
-            border: none;
-        }
-        .btn:hover { 
-            background: #003bb5; 
-            box-shadow: 0 0 20px #0051ff; 
-            transform: scale(1.05);
-        }
-        .btn-discord {
-            background: #5865F2;
-            margin-top: 15px;
-        }
-        .btn-discord:hover {
-            background: #4752C4;
-            box-shadow: 0 0 20px #5865F2;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            padding: 5px 20px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            color: var(--cyan);
+            margin-bottom: 20px;
         }
 
-        /* Cajas de Precios */
-        .plans { 
-            display: flex; 
-            justify-content: center; 
-            gap: 30px; 
-            padding: 40px 20px 80px; 
-            flex-wrap: wrap; 
+        h1.logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            line-height: 1;
+            margin: 0;
+            background: linear-gradient(to right, #00f2fe 0%, #4facfe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+            text-transform: uppercase;
         }
-        .card { 
-            background: #151515; 
-            padding: 40px 30px; 
-            border-radius: 12px; 
-            width: 300px; 
-            text-align: center; 
-            border: 1px solid #333; 
+
+        .subtitle {
+            color: var(--text-muted);
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+            text-transform: uppercase;
+        }
+
+        /* BOTONES SOCIALES Y STATS */
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .btn-social {
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
             transition: 0.3s;
         }
-        .card:hover {
-            border-color: #0051ff;
-            box-shadow: 0 0 15px rgba(0, 81, 255, 0.2);
-        }
-        .card.vip {
-            border: 2px solid #0051ff;
-            position: relative;
-        }
-        .badge {
-            background: #0051ff;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        .card h3 { 
-            margin-top: 0; 
-            font-size: 1.8rem;
-        }
-        .price { 
-            font-size: 2.5rem; 
-            font-weight: bold; 
-            margin: 20px 0; 
-            color: #0051ff;
-        }
-        ul { 
-            list-style: none; 
-            padding: 0; 
-            text-align: left; 
-            margin-bottom: 30px;
-        }
-        li { 
-            margin-bottom: 12px; 
-            color: #ddd;
-        }
-        li::before { 
-            content: '✅ '; 
+
+        .btn-tiktok { background: #111; border: 1px solid #333; }
+        .btn-discord { background: #5865F2; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 30px;
         }
 
-        /* Sección de Pago Directo */
-        .pago-section {
-            background: #111;
-            padding: 50px 20px;
-            text-align: center;
-            border-top: 2px solid #333;
-        }
-        .pago-box {
-            background: #1a1a1a;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 30px;
+        .stat-box {
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 20px;
             border-radius: 12px;
-            border: 1px solid #0051ff;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
         }
-        .pago-box h3 {
-            color: #0051ff;
-            font-size: 2rem;
+
+        .stat-box h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2rem;
+            color: var(--cyan);
+            margin: 0;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
+        }
+
+        .stat-box p {
+            margin: 5px 0 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        /* SECCIÓN SERVICIOS */
+        .services {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .section-tag {
+            color: var(--text-muted);
+            letter-spacing: 3px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .services h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2rem;
+            color: white;
+            margin: 10px 0 40px;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            text-align: left;
+        }
+
+        /* ESTILO DE LAS TARJETAS */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 212, 255, 0.15);
+            border-radius: 16px;
+            padding: 30px;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            border-color: var(--cyan);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .card.vip {
+            border: 1px solid rgba(255, 204, 0, 0.4);
+            background: linear-gradient(180deg, rgba(20, 15, 0, 0.8) 0%, var(--card-bg) 100%);
+        }
+
+        .card.vip:hover {
+            border-color: var(--gold);
+            box-shadow: 0 0 25px rgba(255, 204, 0, 0.15);
+        }
+
+        .badge-vip {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(90deg, #ff5e00, #ff8c00);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .icon { font-size: 2rem; margin-bottom: 15px; }
+
+        .card-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            color: white;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .price {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin: 10px 0 0;
+            line-height: 1;
+        }
+
+        .price.cyan { color: var(--cyan); text-shadow: 0 0 15px rgba(0, 212, 255, 0.3); }
+        .price.gold { color: var(--gold); text-shadow: 0 0 15px rgba(255, 204, 0, 0.3); }
+
+        .sub-price {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        .desc-italic {
+            font-style: italic;
+            color: #a0aec0;
+            font-size: 1rem;
+            margin: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 20px;
+        }
+
+        ul.features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 30px 0;
+        }
+
+        ul.features li {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            color: #d1d5db;
+        }
+
+        ul.features li::before {
+            content: '✓';
+            color: var(--cyan);
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 1.2rem;
+        }
+
+        .card.vip ul.features li::before {
+            color: var(--gold);
+        }
+
+        .btn-buy {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: 0.3s;
+            box-sizing: border-box;
+        }
+
+        .btn-cyan {
+            background: linear-gradient(90deg, #0072ff, #00c6ff);
+            color: white;
+            border: none;
+        }
+        .btn-cyan:hover { box-shadow: 0 0 15px rgba(0, 198, 255, 0.5); }
+
+        .btn-gold {
+            background: linear-gradient(90deg, #d4af37, #ffcc00);
+            color: #000;
+            border: none;
+        }
+        .btn-gold:hover { box-shadow: 0 0 15px rgba(255, 204, 0, 0.5); }
+
+        /* SECCIÓN DE PAGO MANUAL (BIZUM/PAYPAL) */
+        .pago-section {
+            margin-top: 60px;
+            padding: 40px;
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .pago-section h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--cyan);
+            font-size: 1.8rem;
             margin-top: 0;
         }
-        .pago-method {
-            background: #0a0a0a;
+
+        .metodo-pago {
+            background: #040914;
+            border: 1px solid #1a253a;
             padding: 20px;
-            margin: 15px 0;
             border-radius: 8px;
-            font-size: 1.2rem;
-            border: 1px solid #333;
+            margin-bottom: 20px;
         }
-        .discord-warning {
-            color: #ff3333;
+
+        .bizum-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            color: var(--cyan);
+            display: block;
+            margin: 10px 0;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+        }
+
+        .warning {
+            color: #ff4757;
             font-weight: bold;
-            margin-top: 20px;
             font-size: 1.1rem;
+            margin-top: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            margin-top: 60px;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Sergio-OS 🚀</h1>
-        <p>La optimización que usan los PROS</p>
-    </header>
-
-    <section class="hero">
-        <h2>DEJA DE JUGAR A TIRONES</h2>
-        <p>+200 FPS y 0 Delay reales en tu PC. O lo compras, o sigues dando pena en el lobby.</p>
-        <a href="#pagar" class="btn">Ver Métodos de Pago</a>
-    </section>
-
-    <section class="plans">
-        <div class="card">
-            <h3>Basic Tweak</h3>
-            <div class="price">7,50€</div>
-            <ul>
-                <li>Limpieza de Windows</li>
-                <li>Boost de FPS (Básico)</li>
-                <li>Reducción de Delay</li>
-            </ul>
-            <a href="#pagar" class="btn" style="width: 80%; padding: 12px;">Comprar Básico</a>
-        </div>
-
-        <div class="card">
-            <h3>Advanced Tweak</h3>
-            <div class="price">19,99€</div>
-            <ul>
-                <li>FPS al máximo (+300)</li>
-                <li>0 Input Delay</li>
-                <li>Optimización de Red (Ping)</li>
-                <li>Limpieza Profunda</li>
-            </ul>
-            <a href="#pagar" class="btn" style="width: 80%; padding: 12px;">Comprar Advanced</a>
-        </div>
-
-        <div class="card vip">
-            <div class="badge">MÁS VENDIDO</div>
-            <h3>God Mode</h3>
-            <div class="price">39,99€</div>
-            <ul>
-                <li>TODO lo del Advanced</li>
-                <li>Overclock Seguro (CPU/GPU/RAM)</li>
-                <li>Ajustes extremos de BIOS</li>
-                <li>Prioridad VIP en Discord</li>
-            </ul>
-            <a href="#pagar" class="btn" style="width: 80%; padding: 12px;">Comprar VIP</a>
-        </div>
-    </section>
-
-    <section id="pagar" class="pago-section">
-        <div class="pago-box">
-            <h3>CÓMO PAGAR TU TWEAK</h3>
-            <p>Elige tu método de pago preferido y envía el dinero del paquete que hayas elegido:</p>
+    <div class="container">
+        <header>
+            <div class="top-tag">RENDIMIENTO EXTREMO · PC GAMING</div>
+            <h1 class="logo">SERGIO <br> OS</h1>
+            <p class="subtitle">Optimizaciones de Fortnite · Poca latencia · Aumento de FPS</p>
             
-            <div class="pago-method">
-                📲 <strong>BIZUM:</strong> Envía el dinero al número <br>
-                <span style="font-size: 2rem; font-weight: bold; color: #0051ff;">663 252 932</span><br>
-                <span style="font-size: 0.9rem; color: #888;">(Pon tu usuario de Discord en el concepto del Bizum)</span>
+            <div class="social-buttons">
+                <a href="#" class="btn-social btn-tiktok">TIKTOK</a>
+                <a href="#" class="btn-social btn-discord">DISCORD</a>
             </div>
 
-            <div class="pago-method">
-                💳 <strong>PAYPAL:</strong> Haz clic en el enlace para enviarlo directo:<br>
-                <a href="https://paypal.me/sergio212660" target="_blank" style="color: #00bfff; font-size: 1.5rem; font-weight: bold; text-decoration: none; display: block; margin-top: 10px;">👉 Pagar con PayPal 👈</a>
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <h3>491+</h3>
+                    <p>CLIENTES</p>
+                </div>
+                <div class="stat-box">
+                    <h3>196+</h3>
+                    <p>FPS GANADOS</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="services">
+            <div class="section-tag">NUESTROS SERVICIOS</div>
+            <h2>Elige tu Optimización</h2>
+
+            <div class="cards-container">
+                
+                <div class="card">
+                    <div class="icon">📁</div>
+                    <h3 class="card-title">PACK "HAZLO TÚ MISMO"</h3>
+                    <div class="price cyan">5€</div>
+                    <p class="sub-price">Pago único</p>
+                    <p class="desc-italic">La fórmula secreta para presupuestos ajustados.</p>
+                    <ul class="features">
+                        <li>Link de descarga con 3 scripts privados</li>
+                        <li>ISO exclusiva de Sergio OS</li>
+                        <li>Bloc de notas con pasos de instalación</li>
+                        <li>Sin esperar colas ni AnyDesk</li>
+                        <li>Instálalo a tu ritmo</li>
+                    </ul>
+                    <a href="#pagar" class="btn-buy btn-cyan">COMPRAR AHORA</a>
+                </div>
+
+                <div class="card">
+                    <div class="icon">⚙️</div>
+                    <h3 class="card-title">ADVANCED TWEAK</h3>
+                    <div class="price cyan">10€</div>
+                    <p class="sub-price">Pago único</p>
+                    <p class="desc-italic">Inyección rápida de FPS sin formatear.</p>
+                    <ul class="features">
+                        <li>Conexión remota a tu PC</li>
+                        <li>Limpieza profunda de Windows</li>
+                        <li>Plan de energía custom</li>
+                        <li>Optimización de registro</li>
+                        <li>Ajuste de drivers avanzado</li>
+                        <li>Aniquilación de procesos en segundo plano</li>
+                    </ul>
+                    <a href="#pagar" class="btn-buy btn-cyan">COMPRAR AHORA</a>
+                </div>
+
+                <div class="card vip">
+                    <div class="badge-vip">🔥 MÁS VENDIDO</div>
+                    <div class="icon">🚀</div>
+                    <h3 class="card-title">ULTIMATE TWEAK VIP</h3>
+                    <div class="price gold">20€</div>
+                    <p class="sub-price">La optimización de los PROS</p>
+                    <p class="desc-italic">Reconstrucción total. Cero Delay Garantizado.</p>
+                    <ul class="features">
+                        <li>Formateo + instalación Sergio OS V2</li>
+                        <li>Todo lo del pack Advanced incluido</li>
+                        <li>Overclock / PBO en BIOS</li>
+                        <li>XMP RAM + ReSize BAR + FCLK</li>
+                        <li>Eliminación de C-States</li>
+                        <li>Limpieza de IRQs (0 lag garantizado)</li>
+                        <li>Ratón y teclado a velocidad de la luz</li>
+                    </ul>
+                    <a href="#pagar" class="btn-buy btn-gold">COMPRAR AHORA</a>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="pagar" class="pago-section">
+            <h3>💳 FINALIZA TU COMPRA</h3>
+            <p style="color: #ccc; font-size: 1.1rem; margin-bottom: 30px;">
+                Para no cobrarte comisiones extra, los pagos se hacen directos. Elige el método que prefieras:
+            </p>
+
+            <div class="metodo-pago">
+                <span style="font-size: 1.5rem;">📲 <strong>PAGO POR BIZUM</strong></span><br>
+                <span style="color: #888;">Envía el importe exacto del pack a este número:</span>
+                <span class="bizum-number">663 252 932</span>
+                <span style="color: var(--cyan);">Pon tu nombre de Discord en el concepto.</span>
             </div>
 
-            <p class="discord-warning">⚠️ PASO FINAL OBLIGATORIO ⚠️</p>
-            <p>Una vez hecho el pago, entra a mi Discord, abre un ticket enseñando la captura del pago y me pongo con tu PC en el momento.</p>
-            
-            <a href="https://discord.gg/j9R2U9BWWD" target="_blank" class="btn btn-discord">Entrar a mi Discord</a>
-        </div>
-    </section>
+            <div class="metodo-pago">
+                <span style="font-size: 1.5rem;">💙 <strong>PAGO POR PAYPAL</strong></span><br>
+                <span style="color: #888;">Si no tienes Bizum, usa este enlace seguro:</span><br><br>
+                <a href="TU_LINK_DE_PAYPAL" target="_blank" class="btn-buy btn-cyan" style="display: inline-block; width: auto; padding: 10px 30px;">Pagar con PayPal</a>
+            </div>
+
+            <p class="warning">⚠️ IMPORTANTE: PASO FINAL ⚠️</p>
+            <p style="color: #ccc;">
+                Nada más enviar el pago, entra a nuestro Discord y abre un ticket mandando la captura. Nos pondremos con tu PC en ese mismo instante.
+            </p>
+        </section>
+
+        <footer>
+            <p>SERGIO OS</p>
+            <p style="font-size: 0.8rem;">© 2026 Sergio OS · Optimizaciones Fortnite Pro</p>
+        </footer>
+    </div>
 
 </body>
 </html>
