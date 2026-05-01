@@ -1,142 +1,211 @@
-<!-- ========================================= -->
-<!-- MODAL DE PAGO (VENTANA EMERGENTE STRIPE)  -->
-<!-- ========================================= -->
-
-<style>
-    /* Fondo oscuro de la ventana */
-    .modal-overlay {
-        position: fixed;
-        top: 0; left: 0; width: 100%; height: 100%;
-        background: rgba(0, 0, 0, 0.85);
-        display: none; /* Oculto por defecto */
-        justify-content: center; align-items: center;
-        z-index: 9999;
-        backdrop-filter: blur(8px);
-    }
-
-    /* Caja principal del modal */
-    .modal-content {
-        background: #01060f;
-        border: 2px solid #00d2ff; /* Borde Cyan */
-        border-radius: 12px;
-        padding: 40px;
-        text-align: center;
-        width: 90%;
-        max-width: 500px;
-        box-shadow: 0 0 25px rgba(0, 210, 255, 0.2);
-    }
-
-    .modal-title {
-        color: white;
-        font-family: 'Orbitron', sans-serif;
-        font-size: 1.8rem;
-        margin-bottom: 15px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-    }
-
-    .modal-text {
-        color: #8b9bb4;
-        font-size: 0.95rem;
-        margin-bottom: 20px;
-    }
-
-    /* ESTILO AGRESIVO ROJO (LA CAJA DE AVISO) */
-    .alert-agresivo {
-        background: rgba(255, 0, 0, 0.15);
-        border: 2px solid #ff0000;
-        color: #ff3333;
-        font-weight: 900;
-        font-size: 1.1rem;
-        padding: 15px;
-        border-radius: 8px;
-        margin-bottom: 30px;
-        text-transform: uppercase;
-        animation: latidoPeligro 1.5s infinite; /* Efecto que pulsa */
-    }
-
-    /* Animación para que el rojo palpite */
-    @keyframes latidoPeligro {
-        0% { transform: scale(1); box-shadow: 0 0 10px rgba(255,0,0,0.4); }
-        50% { transform: scale(1.03); box-shadow: 0 0 25px rgba(255,0,0,0.8); }
-        100% { transform: scale(1); box-shadow: 0 0 10px rgba(255,0,0,0.4); }
-    }
-
-    /* Botón azul cyan */
-    .btn-pagar-ahora {
-        background: #00d2ff;
-        color: #000; /* Letra negra para que destaque más */
-        border: none;
-        width: 100%;
-        padding: 16px;
-        font-size: 1.3rem;
-        font-weight: 900;
-        border-radius: 8px;
-        cursor: pointer;
-        font-family: 'Orbitron', sans-serif;
-        text-transform: uppercase;
-        transition: 0.3s;
-        box-shadow: 0 0 15px rgba(0, 210, 255, 0.5);
-    }
-
-    .btn-pagar-ahora:hover {
-        background: #00e5ff;
-        box-shadow: 0 0 25px rgba(0, 210, 255, 0.8);
-        transform: translateY(-2px);
-    }
-
-    .cerrar-ventana {
-        color: #5b6b85;
-        margin-top: 20px;
-        display: block;
-        cursor: pointer;
-        font-size: 0.9rem;
-        text-decoration: none;
-        transition: 0.3s;
-    }
-
-    .cerrar-ventana:hover {
-        color: white;
-    }
-</style>
-
-<div id="ventanaPago" class="modal-overlay">
-    <div class="modal-content">
-        <h2 class="modal-title">PAGO SEGURO</h2>
-        
-        <p class="modal-text">Serás redirigido a Stripe para completar el pago con Tarjeta o Apple Pay.</p>
-        
-        <!-- TEXTO AGRESIVO -->
-        <div class="alert-agresivo">
-            ⚠️ ¡OBLIGATORIO! ⚠️<br><br>
-            TRAS PAGAR, ABRE UN TICKET EN DISCORD CON LA CAPTURA DEL PAGO.<br>
-            SIN CAPTURA NO SE ENTREGA EL TWEAK.
-        </div>
-
-        <button class="btn-pagar-ahora" onclick="irAlPagoStripe()">PAGAR AHORA</button>
-        
-        <span class="cerrar-ventana" onclick="cerrarModal()">Cerrar ventana</span>
-    </div>
-</div>
-
-<script>
-    let linkDePagoActual = "";
-
-    // Función para abrir la ventana y guardar qué plan eligió
-    function abrirModalPago(linkStripe) {
-        linkDePagoActual = linkStripe;
-        document.getElementById('ventanaPago').style.display = 'flex';
-    }
-
-    // Función para cerrar la ventana
-    function cerrarModal() {
-        document.getElementById('ventanaPago').style.display = 'none';
-    }
-
-    // Función que te lleva a Stripe cuando pulsas el botón azul
-    function irAlPagoStripe() {
-        if (linkDePagoActual !== "") {
-            window.location.href = linkDePagoActual;
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sergio OS | Optimización Extrema</title>
+    <!-- Fuente futurista -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ESTILOS GENERALES DE LA WEB */
+        body {
+            background-color: #01060f;
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+            margin: 0;
+            padding: 50px;
+            text-align: center;
         }
-    }
-</script>
+
+        h1 {
+            color: #00d2ff;
+            text-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
+            font-size: 3rem;
+        }
+
+        .producto-caja {
+            background: #0a1128;
+            border: 2px solid #00d2ff;
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 400px;
+            margin: 40px auto;
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.2);
+        }
+
+        .precio {
+            font-size: 2.5rem;
+            color: #00ffcc;
+            font-weight: 900;
+            margin: 20px 0;
+        }
+
+        .btn-abrir-modal {
+            background: #00d2ff;
+            color: #000;
+            border: none;
+            width: 100%;
+            padding: 15px;
+            font-size: 1.2rem;
+            font-weight: 900;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Orbitron', sans-serif;
+            transition: 0.3s;
+        }
+
+        .btn-abrir-modal:hover {
+            background: #00e5ff;
+            box-shadow: 0 0 25px rgba(0, 210, 255, 0.8);
+        }
+
+        /* ========================================= */
+        /* ESTILOS DEL MODAL (VENTANA DE PAGO)       */
+        /* ========================================= */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: none; /* Oculto por defecto */
+            justify-content: center; align-items: center;
+            z-index: 9999;
+            backdrop-filter: blur(8px);
+        }
+
+        .modal-content {
+            background: #01060f;
+            border: 2px solid #00d2ff;
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 0 25px rgba(0, 210, 255, 0.2);
+        }
+
+        .modal-title {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .alert-agresivo {
+            background: rgba(255, 0, 0, 0.15);
+            border: 2px solid #ff0000;
+            color: #ff3333;
+            font-weight: 900;
+            font-size: 1.1rem;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            animation: latidoPeligro 1.5s infinite;
+        }
+
+        @keyframes latidoPeligro {
+            0% { transform: scale(1); box-shadow: 0 0 10px rgba(255,0,0,0.4); }
+            50% { transform: scale(1.03); box-shadow: 0 0 25px rgba(255,0,0,0.8); }
+            100% { transform: scale(1); box-shadow: 0 0 10px rgba(255,0,0,0.4); }
+        }
+
+        .btn-pagar-ahora {
+            background: #00d2ff;
+            color: #000;
+            border: none;
+            width: 100%;
+            padding: 16px;
+            font-size: 1.3rem;
+            font-weight: 900;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .cerrar-ventana {
+            color: #5b6b85;
+            margin-top: 20px;
+            display: block;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CABECERA DE TU WEB -->
+    <h1>SERGIO OS V2</h1>
+    <p>La mejor optimización para exprimir al máximo tus FPS.</p>
+
+    <!-- CAJA DEL PRODUCTO -->
+    <div class="producto-caja">
+        <h2>TWEAK VIP COMPLETO</h2>
+        <p>Optimización de Windows + BIOS + Ping</p>
+        <div class="precio">20 €</div>
+        
+        <!-- ESTE BOTÓN ABRE LA VENTANA. Pon tu link de Stripe dentro de los paréntesis -->
+        <button class="btn-abrir-modal" onclick="abrirModalPago('https://buy.stripe.com/PON_TU_LINK_AQUI')">
+            COMPRAR AHORA
+        </button>
+    </div>
+
+
+    <!-- ========================================= -->
+    <!-- EL MODAL (LA VENTANA OCULTA)              -->
+    <!-- ========================================= -->
+    <div id="ventanaPago" class="modal-overlay">
+        <div class="modal-content">
+            <h2 class="modal-title">PAGO SEGURO</h2>
+            <p style="color: #8b9bb4; margin-bottom: 20px;">Serás redirigido a Stripe para completar el pago.</p>
+            
+            <!-- AVISO ROJO AGRESIVO -->
+            <div class="alert-agresivo">
+                ⚠️ ¡OBLIGATORIO! ⚠️<br><br>
+                TRAS PAGAR, ABRE UN TICKET EN DISCORD CON LA CAPTURA DEL PAGO.<br>
+                SIN CAPTURA NO SE ENTREGA EL TWEAK.
+            </div>
+
+            <button class="btn-pagar-ahora" onclick="irAlPagoStripe()">IR A PAGAR</button>
+            <span class="cerrar-ventana" onclick="cerrarModal()">Cerrar ventana</span>
+        </div>
+    </div>
+
+
+    <!-- ========================================= -->
+    <!-- SCRIPTS (LÓGICA DEL MODAL Y BASE DE DATOS)-->
+    <!-- ========================================= -->
+    
+    <!-- 1. Script para que funcione la ventana de pago -->
+    <script>
+        let linkDePagoActual = "";
+
+        function abrirModalPago(linkStripe) {
+            linkDePagoActual = linkStripe;
+            document.getElementById('ventanaPago').style.display = 'flex';
+        }
+
+        function cerrarModal() {
+            document.getElementById('ventanaPago').style.display = 'none';
+        }
+
+        function irAlPagoStripe() {
+            if (linkDePagoActual !== "") {
+                window.location.href = linkDePagoActual;
+            }
+        }
+    </script>
+
+    <!-- 2. Conexión real a tu base de datos Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        const supabaseUrl = 'https://gsvosybjtepglohztxix.supabase.co';
+        const supabaseKey = 'sb_publishable_vz5YoWqGlj2DPlGN0pms1A_yppUeNB2';
+        const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+        console.log("¡Conexión a Base de Datos Sergio OS establecida con éxito! 🚀");
+    </script>
+
+</body>
+</html>
