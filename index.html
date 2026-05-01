@@ -11,7 +11,6 @@
             --card-bg: #07101d;
             --cyan: #00d4ff;
             --gold: #ffcc00;
-            --orange: #ff5e00;
             --text-main: #ffffff;
             --text-muted: #8b9ab3;
         }
@@ -28,258 +27,142 @@
         .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
 
         header { text-align: center; padding: 40px 10px; }
-        .top-tag {
-            display: inline-block; background: rgba(0, 212, 255, 0.1); border: 1px solid rgba(0, 212, 255, 0.3);
-            padding: 5px 20px; border-radius: 4px; font-size: 0.8rem; letter-spacing: 2px; color: var(--cyan); margin-bottom: 20px;
-        }
-
         h1.logo {
             font-family: 'Orbitron', sans-serif; font-size: 4rem; line-height: 1; margin: 0;
             background: linear-gradient(to right, #00f2fe 0%, #4facfe 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 30px rgba(0, 212, 255, 0.3); text-transform: uppercase;
+            text-transform: uppercase;
         }
 
         .social-buttons { display: flex; justify-content: center; gap: 15px; margin: 30px 0; }
         .btn-social {
             padding: 12px 30px; border-radius: 8px; text-decoration: none; color: white;
-            font-weight: bold; font-size: 1.1rem; letter-spacing: 1px; transition: 0.3s;
+            font-weight: bold; font-size: 1.1rem; transition: 0.3s;
         }
         .btn-tiktok { background: #111; border: 1px solid #333; }
         .btn-discord { background: #5865F2; }
 
-        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 30px 0; }
-        .stat-box { background: var(--card-bg); border: 1px solid rgba(255,255,255,0.05); padding: 20px; border-radius: 12px; text-align: center; }
-        .stat-box h3 { font-family: 'Orbitron', sans-serif; font-size: 2.2rem; color: var(--cyan); margin: 0; }
-
-        .services { padding: 40px 0; text-align: center; }
-        .cards-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; text-align: left; }
+        /* Ahora hay 4 tarjetas en vez de 2, así que se ajustan automáticamente */
+        .cards-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; text-align: left; }
 
         .card {
             background: var(--card-bg); border: 1px solid rgba(0, 212, 255, 0.15); border-radius: 16px;
             padding: 25px; position: relative; transition: 0.3s; display: flex; flex-direction: column;
         }
         .card:hover { border-color: var(--cyan); transform: translateY(-5px); }
-        .card.vip { border: 1px solid rgba(255, 204, 0, 0.4); background: linear-gradient(180deg, rgba(20, 15, 0, 0.8) 0%, var(--card-bg) 100%); }
+        .card.vip { border: 1px solid var(--gold); }
         
-        .badge-vip {
-            position: absolute; top: 15px; right: 15px; background: linear-gradient(90deg, #ff5e00, #ff8c00);
-            color: white; padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; font-weight: bold;
-        }
-
-        .price { font-family: 'Orbitron', sans-serif; font-size: 3rem; margin: 10px 0; }
-        .price.cyan { color: var(--cyan); }
-        .price.gold { color: var(--gold); }
-
-        ul.features { list-style: none; padding: 0; margin: 0 0 20px 0; flex-grow: 1; }
-        ul.features li { margin-bottom: 10px; font-size: 0.95rem; display: flex; align-items: center; color: #d1d5db; }
-        ul.features li::before { content: '✓'; color: var(--cyan); margin-right: 10px; font-weight: bold; }
-        .card.vip ul.features li::before { color: var(--gold); }
+        .price { font-family: 'Orbitron', sans-serif; font-size: 2.5rem; margin: 10px 0; color: var(--cyan); }
+        .card.vip .price { color: var(--gold); }
 
         .btn-buy {
             display: block; width: 100%; text-align: center; padding: 12px; border-radius: 8px;
-            text-decoration: none; font-family: 'Orbitron', sans-serif; font-weight: bold; transition: 0.3s;
-            cursor: pointer; border: none; box-sizing: border-box;
+            text-decoration: none; font-family: 'Orbitron', sans-serif; font-weight: bold; cursor: pointer; border: none;
+            margin-top: auto; box-sizing: border-box;
         }
         .btn-cyan { background: linear-gradient(90deg, #0072ff, #00c6ff); color: white; }
         .btn-gold { background: linear-gradient(90deg, #d4af37, #ffcc00); color: #000; }
 
-        /* ESTILOS DEL MENÚ EMERGENTE (MODAL) */
+        /* MODAL */
         .modal-overlay {
-            display: none; 
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.85); z-index: 1000;
-            justify-content: center; align-items: center;
-            backdrop-filter: blur(5px);
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.9); z-index: 1000; justify-content: center; align-items: center;
+            backdrop-filter: blur(8px);
         }
-
         .modal-content {
-            background: var(--card-bg); border: 2px solid var(--cyan);
-            border-radius: 16px; padding: 30px; width: 90%; max-width: 600px;
-            text-align: center; position: relative;
-            box-shadow: 0 0 40px rgba(0, 212, 255, 0.2);
-            max-height: 90vh; overflow-y: auto;
+            background: var(--card-bg); border: 2px solid var(--cyan); border-radius: 16px;
+            padding: 30px; width: 90%; max-width: 500px; text-align: center; position: relative;
         }
-
-        .close-btn {
-            position: absolute; top: 15px; right: 20px;
-            color: white; font-size: 35px; font-weight: bold;
-            cursor: pointer; transition: 0.3s; line-height: 1;
-        }
-        .close-btn:hover { color: var(--cyan); }
+        .close-btn { position: absolute; top: 10px; right: 20px; color: white; font-size: 30px; cursor: pointer; }
 
         .metodo-box {
-            background: #040914; border: 1px solid #1a253a;
-            padding: 20px; border-radius: 8px; margin-bottom: 15px;
+            background: #040914; border: 1px solid #1a253a; padding: 15px; border-radius: 8px; margin-bottom: 10px;
         }
-        .metodo-box h4 { margin: 0 0 10px 0; color: white; font-size: 1.2rem; }
-        
-        .numero-destacado {
-            font-family: 'Orbitron', sans-serif; font-size: 2.2rem; color: var(--cyan);
-            display: block; text-shadow: 0 0 10px rgba(0, 212, 255, 0.3); margin: 10px 0;
-        }
-        
-        .iban-destacado {
-            font-family: 'Orbitron', sans-serif; font-size: 1.4rem; color: var(--cyan);
-            display: block; text-shadow: 0 0 10px rgba(0, 212, 255, 0.3); margin: 10px 0;
-            letter-spacing: 1px;
-        }
-
-        .nota { color: var(--cyan); font-size: 0.9rem; margin: 0; }
-
-        footer { text-align: center; padding: 40px 0; color: var(--text-muted); font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 40px; }
+        .numero-destacado { font-family: 'Orbitron'; font-size: 1.8rem; color: var(--cyan); display: block; }
     </style>
 </head>
 <body>
 
     <div class="container">
         <header>
-            <div class="top-tag">RENDIMIENTO EXTREMO · PC GAMING</div>
-            <h1 class="logo">SERGIO <br> OS</h1>
-            <p style="color:var(--text-muted); letter-spacing:2px; text-transform:uppercase;">Optimizaciones · Latencia Cero · FPS Boost</p>
-            
+            <h1 class="logo">SERGIO OS</h1>
             <div class="social-buttons">
-                <!-- Cambia el # por tu link de TikTok cuando lo tengas a mano -->
-                <a href="#" class="btn-social btn-tiktok" target="_blank">TIKTOK</a>
-                <a href="https://discord.gg/543yxFagfw" class="btn-social btn-discord" target="_blank">DISCORD</a>
-            </div>
-
-            <div class="stats-grid">
-                <div class="stat-box"><h3>491+</h3><p>CLIENTES</p></div>
-                <div class="stat-box"><h3>196+</h3><p>FPS GANADOS</p></div>
+                <a href="#" class="btn-social btn-tiktok">TIKTOK</a>
+                <a href="https://discord.gg/543yxFagfw" class="btn-social btn-discord">DISCORD</a>
             </div>
         </header>
 
-        <section class="services">
-            <h2>Elige tu Optimización</h2>
-            <div class="cards-container">
-                
-                <!-- Pack 5€ -->
-                <div class="card">
-                    <h3 style="text-transform:uppercase;">Pack "Hazlo tú mismo"</h3>
-                    <div class="price cyan">5€</div>
-                    <p style="font-style:italic; color:#888; margin-bottom:15px;">Scripts privados + ISO exclusiva.</p>
-                    <ul class="features">
-                        <li>3 Scripts privados</li>
-                        <li>ISO Sergio OS</li>
-                        <li>Guía paso a paso</li>
-                        <li>Sin AnyDesk</li>
-                    </ul>
-                    <a onclick="abrirModal()" class="btn-buy btn-cyan">COMPRAR</a>
-                </div>
-
-                <!-- Advanced 10€ -->
-                <div class="card">
-                    <h3 style="text-transform:uppercase;">Advanced Tweak</h3>
-                    <div class="price cyan">10€</div>
-                    <p style="font-style:italic; color:#888; margin-bottom:15px;">Optimización remota sin formatear.</p>
-                    <ul class="features">
-                        <li>Conexión remota</li>
-                        <li>Limpieza profunda</li>
-                        <li>Plan de energía custom</li>
-                        <li>Ajuste de drivers</li>
-                    </ul>
-                    <a onclick="abrirModal()" class="btn-buy btn-cyan">COMPRAR</a>
-                </div>
-
-                <!-- VIP 20€ -->
-                <div class="card vip">
-                    <div class="badge-vip">🔥 TOP VENTAS</div>
-                    <h3 style="text-transform:uppercase;">Ultimate Tweak VIP</h3>
-                    <div class="price gold">20€</div>
-                    <p style="font-style:italic; color:#888; margin-bottom:15px;">Reconstrucción total del sistema.</p>
-                    <ul class="features">
-                        <li>Formateo + Sergio OS V2</li>
-                        <li>Overclock / PBO BIOS</li>
-                        <li>XMP + ReSize BAR</li>
-                        <li>Prioridad Ticket Discord</li>
-                    </ul>
-                    <a onclick="abrirModal()" class="btn-buy btn-gold">COMPRAR</a>
-                </div>
-
-                <!-- Seguro 5€ -->
-                <div class="card">
-                    <h3 style="text-transform:uppercase;">Seguro Mantenimiento</h3>
-                    <div class="price cyan">5€<span style="font-size:1rem;">/mes</span></div>
-                    <ul class="features">
-                        <li>Limpieza mensual</li>
-                        <li>Actualización drivers</li>
-                        <li>Exclusivo clientes VIP</li>
-                    </ul>
-                    <a onclick="abrirModal()" class="btn-buy btn-cyan">SUSCRIBIRME</a>
-                </div>
-
-                <!-- Licencias 8€ -->
-                <div class="card">
-                    <h3 style="text-transform:uppercase;">Licencias Windows</h3>
-                    <div class="price cyan">8€</div>
-                    <ul class="features">
-                        <li>Windows 10 / 11 Pro</li>
-                        <li>Original y Permanente</li>
-                        <li>Adiós marca de agua</li>
-                    </ul>
-                    <a onclick="abrirModal()" class="btn-buy btn-cyan">OBTENER</a>
-                </div>
-
-            </div>
-        </section>
-
-        <footer>
-            <p>SERGIO OS © 2026 · OPTIMIZACIONES FORTNITE PRO</p>
-        </footer>
-    </div>
-
-    <!-- MENÚ EMERGENTE (MODAL) OCULTO POR DEFECTO -->
-    <div id="pagoModal" class="modal-overlay">
-        <div class="modal-content">
-            <span class="close-btn" onclick="cerrarModal()">&times;</span>
-            <h3 style="font-family:'Orbitron'; color: var(--cyan); margin-top: 0; font-size: 1.8rem;">💳 FINALIZA TU COMPRA</h3>
-            <p style="color: #ccc; margin-bottom: 25px;">Para no cobrarte comisiones extra, los pagos se hacen directos. Elige el método que prefieras:</p>
-
-            <div class="metodo-box">
-                <h4>📲 PAGO POR BIZUM</h4>
-                <p style="color: #888; margin: 0;">Envía el importe exacto a este número:</p>
-                <span class="numero-destacado">663 252 932</span>
-                <p class="nota">Pon tu nombre de Discord en el concepto.</p>
+        <div class="cards-container">
+            <!-- PRODUCTO 1: PACK HAZLO TÚ MISMO -->
+            <div class="card">
+                <h3>PACK HAZLO TÚ MISMO</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Scripts privados + ISO exclusiva + Guía de instalación.</p>
+                <div class="price">5€</div>
+                <button onclick="abrirModal('https://buy.stripe.com/dRm6oGcy3cjEa4PfKMd7q02')" class="btn-buy btn-cyan">COMPRAR</button>
             </div>
 
-            <div class="metodo-box">
-                <h4>🏦 TRANSFERENCIA BANCARIA</h4>
-                <p style="color: #888; margin: 0;">Envía el dinero a este número de cuenta (IBAN):</p>
-                <span class="iban-destacado">ES21 3058 0990 2827 6440 4869</span>
-                <p class="nota">Pon tu nombre de Discord en el concepto.</p>
+            <!-- PRODUCTO 2: SEGURO DE MANTENIMIENTO -->
+            <div class="card">
+                <h3>SEGURO MANTENIMIENTO</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Mantenimiento mensual y revisión remota de 15 mins.</p>
+                <div class="price">5€</div>
+                <button onclick="abrirModal('https://buy.stripe.com/7sYcN42Xt2J4ccX2Y0d7q01')" class="btn-buy btn-cyan">COMPRAR</button>
             </div>
 
-            <div class="metodo-box">
-                <h4>💙 PAGO POR PAYPAL</h4>
-                <br>
-                <a href="https://paypal.me/sergio212660" target="_blank" class="btn-buy btn-cyan" style="display:inline-block; width:auto; padding:10px 40px;">Pagar con PayPal</a>
+            <!-- PRODUCTO 3: ADVANCED TWEAK -->
+            <div class="card">
+                <h3>ADVANCED TWEAK</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Inyección de FPS + Limpieza profunda + Ajustes de plan de energía.</p>
+                <div class="price">10€</div>
+                <button onclick="abrirModal('https://buy.stripe.com/aFa3cu2Xt2J4gtd1TWd7q03')" class="btn-buy btn-cyan">COMPRAR</button>
             </div>
 
-            <p style="color:#ff4757; font-weight:bold; margin-top:25px;">⚠️ IMPORTANTE: PASO FINAL ⚠️</p>
-            <p style="color: #ccc; font-size: 0.9rem;">Nada más enviar el pago, entra al Discord y abre ticket.</p>
-            <a href="https://discord.gg/543yxFagfw" target="_blank" class="btn-buy btn-gold" style="width: 80%; margin: 15px auto 0;">ENTRAR AL DISCORD</a>
+            <!-- PRODUCTO 4: ULTIMATE VIP -->
+            <div class="card vip">
+                <h3>ULTIMATE VIP</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Optimización total. Overclock/PBO en BIOS + Cero Input Delay.</p>
+                <div class="price">20€</div>
+                <button onclick="abrirModal('https://buy.stripe.com/fZu5kCfKfdnIa4PcyAd7q04')" class="btn-buy btn-gold">COMPRAR</button>
+            </div>
         </div>
     </div>
 
-    <!-- SCRIPT PARA HACER FUNCIONAR EL MENÚ EMERGENTE -->
+    <!-- MODAL DE PAGO (MENÚ EMERGENTE) -->
+    <div id="pagoModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-btn" onclick="cerrarModal()">&times;</span>
+            <h3 style="color: var(--cyan);">ELIGE MÉTODO DE PAGO</h3>
+            
+            <div class="metodo-box">
+                <h4 style="margin:0">💳 TARJETA / APPLE PAY</h4>
+                <p style="font-size:0.8rem; color:#888">Pago rápido, seguro y automático</p>
+                <!-- Este enlace cambiará solo dependiendo del botón que pulses gracias al código de abajo -->
+                <a id="enlaceStripe" href="#" target="_blank" class="btn-buy btn-cyan" style="padding:8px">Pagar ahora</a>
+            </div>
+
+            <div class="metodo-box">
+                <h4 style="margin:0">📲 BIZUM</h4>
+                <span class="numero-destacado">663 252 932</span>
+            </div>
+
+            <div class="metodo-box">
+                <h4 style="margin:0">💙 PAYPAL</h4>
+                <a href="https://paypal.me/sergio212660" target="_blank" class="btn-buy btn-cyan" style="padding:8px; background:#003087">Paypal.me</a>
+            </div>
+
+            <p style="font-size:0.8rem; color: #ff4757; font-weight: bold;">⚠️ IMPORTANTE: Abre ticket en Discord tras pagar</p>
+        </div>
+    </div>
+
     <script>
-        function abrirModal() {
-            document.getElementById('pagoModal').style.display = 'flex';
+        // Esta pequeña magia actualiza el botón de Stripe con el link correcto cada vez
+        function abrirModal(linkStripeSeleccionado) { 
+            document.getElementById('enlaceStripe').href = linkStripeSeleccionado;
+            document.getElementById('pagoModal').style.display = 'flex'; 
         }
-
-        function cerrarModal() {
-            document.getElementById('pagoModal').style.display = 'none';
-        }
-
-        // Cierra el menú si el cliente hace clic fuera de la caja
-        window.onclick = function(event) {
-            var modal = document.getElementById('pagoModal');
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
+        function cerrarModal() { 
+            document.getElementById('pagoModal').style.display = 'none'; 
         }
     </script>
-
 </body>
 </html>
