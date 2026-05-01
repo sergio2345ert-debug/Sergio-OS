@@ -76,51 +76,27 @@
             text-transform: uppercase;
         }
 
-        /* BOTONES SOCIALES Y STATS (MODO AGRESIVO) */
+        /* BOTONES SOCIALES Y STATS */
         .social-buttons {
             display: flex;
             justify-content: center;
-            gap: 25px;
-            margin: 45px 0;
-            flex-wrap: wrap; 
+            gap: 15px;
+            margin: 30px 0;
         }
 
         .btn-social {
-            padding: 18px 50px;
-            border-radius: 12px;
+            padding: 12px 30px;
+            border-radius: 8px;
             text-decoration: none;
             color: white;
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 800;
-            font-size: 1.5rem;
-            letter-spacing: 2px;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            transition: 0.3s;
         }
 
-        .btn-tiktok { 
-            background: #0a0a0a; 
-            border: 2px solid #00f2fe; 
-            box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
-        }
-        .btn-tiktok:hover {
-            background: #00f2fe;
-            color: #000;
-            box-shadow: 0 0 35px rgba(0, 242, 254, 0.8);
-            transform: scale(1.08) translateY(-5px);
-        }
-
-        .btn-discord { 
-            background: #5865F2; 
-            border: 2px solid #5865F2;
-            box-shadow: 0 0 15px rgba(88, 101, 242, 0.4);
-        }
-        .btn-discord:hover { 
-            background: #4752c4;
-            border-color: #4752c4;
-            box-shadow: 0 0 35px rgba(88, 101, 242, 0.9);
-            transform: scale(1.08) translateY(-5px);
-        }
+        .btn-tiktok { background: #111; border: 1px solid #333; }
+        .btn-discord { background: #5865F2; }
 
         .stats-grid {
             display: grid;
@@ -368,9 +344,10 @@
             <p class="subtitle">Optimizaciones de Fortnite · Poca latencia · Aumento de FPS</p>
             
             <div class="social-buttons">
-                <!-- PON TUS ENLACES REALES DONDE PONE '#' -->
+                <!-- Cambia el # por tu enlace de TikTok cuando quieras -->
                 <a href="#" class="btn-social btn-tiktok" target="_blank">TIKTOK</a>
-                <a href="#" class="btn-social btn-discord" target="_blank">DISCORD</a>
+                <!-- Aquí está tu enlace de Discord ya puesto -->
+                <a href="https://discord.gg/543yxFagfw" class="btn-social btn-discord" target="_blank">DISCORD</a>
             </div>
 
             <div class="stats-grid">
@@ -468,12 +445,12 @@
                 <span style="font-size: 1.5rem;">💙 <strong>PAGO POR PAYPAL</strong></span><br>
                 <span style="color: #888;">Si no tienes Bizum, usa este enlace seguro:</span><br><br>
                 <!-- CAMBIA ESTE ENLACE POR TU PAYPAL REAL -->
-                <a href="TU_LINK_DE_PAYPAL_AQUI" target="_blank" class="btn-buy btn-cyan" style="display: inline-block; width: auto; padding: 10px 30px;">Pagar con PayPal</a>
+                <a href="TU_LINK_DE_PAYPAL" target="_blank" class="btn-buy btn-cyan" style="display: inline-block; width: auto; padding: 10px 30px;">Pagar con PayPal</a>
             </div>
 
             <p class="warning">⚠️ IMPORTANTE: PASO FINAL ⚠️</p>
             <p style="color: #ccc;">
-                Nada más enviar el pago, entra a nuestro Discord y abre un ticket mandando la captura. Nos pondremos con tu PC en ese mismo instante.
+                Nada más enviar el pago, entra a nuestro <a href="https://discord.gg/543yxFagfw" target="_blank" style="color: var(--cyan); text-decoration: none; font-weight: bold;">Discord oficial</a> y abre un ticket mandando la captura. Nos pondremos con tu PC en ese mismo instante.
             </p>
         </section>
 
