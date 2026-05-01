@@ -103,7 +103,18 @@
             padding: 40px; width: 85%; max-width: 400px; text-align: center;
         }
 
-        /* ESTILO AGRESIVO ROJO (LA CAJA DE AVISO) */
+        .input-discord {
+            width: 85%; padding: 15px; margin-bottom: 20px; border-radius: 8px; 
+            border: 2px solid #00f2fe; background: #01060f; color: white; 
+            font-family: 'Orbitron'; text-align: center; font-size: 1rem;
+            outline: none;
+        }
+
+        .input-discord:focus {
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.5);
+        }
+
+        /* ESTILO AGRESIVO ROJO */
         .alert-agresivo {
             background: rgba(255, 0, 0, 0.15);
             border: 2px solid #ff0000;
@@ -114,7 +125,7 @@
             border-radius: 8px;
             margin-bottom: 25px;
             text-transform: uppercase;
-            animation: latidoPeligro 1.5s infinite; /* Efecto que pulsa */
+            animation: latidoPeligro 1.5s infinite; 
         }
 
         @keyframes latidoPeligro {
@@ -153,7 +164,7 @@
         <span class="section-tag">NUESTROS SERVICIOS</span>
         <h2 class="section-title">Elige tu Optimización</h2>
 
-        <!-- PRODUCTO 1 -->
+        <!-- PRODUCTOS (AHORA LE MANDAN EL PLAN A LA BASE DE DATOS) -->
         <div class="card">
             <div class="card-icon">📁</div>
             <h3 class="card-title">PACK "HAZLO TÚ MISMO"</h3>
@@ -165,10 +176,9 @@
                 <li>ISO exclusiva de Sergio OS</li>
                 <li>Instálalo a tu ritmo</li>
             </ul>
-            <button onclick="abrirModal('https://buy.stripe.com/dRm6oGcy3cjEa4PfKMd7q02')" class="btn-buy">COMPRAR AHORA</button>
+            <button onclick="abrirModal('https://buy.stripe.com/dRm6oGcy3cjEa4PfKMd7q02', 'PACK 5€')" class="btn-buy">COMPRAR AHORA</button>
         </div>
 
-        <!-- PRODUCTO 2 -->
         <div class="card">
             <div class="card-icon">⚙️</div>
             <h3 class="card-title">ADVANCED TWEAK</h3>
@@ -180,10 +190,9 @@
                 <li>Limpieza profunda de Windows</li>
                 <li>Ajuste de drivers avanzado</li>
             </ul>
-            <button onclick="abrirModal('https://buy.stripe.com/aFa3cu2Xt2J4gtd1TWd7q03')" class="btn-buy">COMPRAR AHORA</button>
+            <button onclick="abrirModal('https://buy.stripe.com/aFa3cu2Xt2J4gtd1TWd7q03', 'ADVANCED 10€')" class="btn-buy">COMPRAR AHORA</button>
         </div>
 
-        <!-- PRODUCTO 3 -->
         <div class="card vip">
             <div class="badge-pro">🔥 MÁS VENDIDO</div>
             <div class="card-icon">🚀</div>
@@ -196,10 +205,9 @@
                 <li>Overclock / PBO en BIOS</li>
                 <li>Ratón y teclado a velocidad de la luz</li>
             </ul>
-            <button onclick="abrirModal('https://buy.stripe.com/fZu5kCfKfdnIa4PcyAd7q04')" class="btn-buy gold">COMPRAR AHORA</button>
+            <button onclick="abrirModal('https://buy.stripe.com/fZu5kCfKfdnIa4PcyAd7q04', 'VIP 20€')" class="btn-buy gold">COMPRAR AHORA</button>
         </div>
 
-        <!-- PRODUCTO 4 -->
         <div class="card">
             <div class="card-icon">🛡️</div>
             <h3 class="card-title">SEGURO DE MANTENIMIENTO</h3>
@@ -211,7 +219,7 @@
                 <li>Actualización de drivers</li>
                 <li>Mantenimiento de FPS constante</li>
             </ul>
-            <button onclick="abrirModal('https://buy.stripe.com/7sYcN42Xt2J4ccX2Y0d7q01')" class="btn-buy">SUSCRIBIRME</button>
+            <button onclick="abrirModal('https://buy.stripe.com/7sYcN42Xt2J4ccX2Y0d7q01', 'MANTENIMIENTO 5€')" class="btn-buy">SUSCRIBIRME</button>
         </div>
 
         <footer>
@@ -220,12 +228,15 @@
         </footer>
     </div>
 
-    <!-- VENTANA MODAL DE PAGO -->
+    <!-- VENTANA MODAL DE PAGO CON INPUT DE DISCORD -->
     <div id="pagoModal" class="modal-overlay">
         <div class="modal-content">
             <h3 style="font-family: 'Orbitron'; margin-bottom: 10px; color: white;">PAGO SEGURO</h3>
-            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 25px;">Serás redirigido a Stripe para completar el pago.</p>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">Pon tu Discord para identificarte en el pago.</p>
             
+            <!-- CAJA PARA ESCRIBIR EL DISCORD -->
+            <input type="text" id="usuarioDiscord" class="input-discord" placeholder="Tu usuario de Discord" required>
+
             <!-- AVISO ROJO AGRESIVO -->
             <div class="alert-agresivo">
                 ⚠️ ¡OBLIGATORIO! ⚠️<br><br>
@@ -233,30 +244,63 @@
                 SIN CAPTURA NO SE ENTREGA EL TWEAK.
             </div>
 
-            <a id="enlaceStripe" href="#" target="_blank" class="btn-buy">PAGAR AHORA</a>
+            <button onclick="procesarPago()" id="btnPagar" class="btn-buy">IR A PAGAR</button>
             <p onclick="cerrarModal()" style="margin-top: 25px; cursor: pointer; color: var(--text-muted); font-size: 0.8rem;">Cerrar ventana</p>
         </div>
     </div>
 
-    <!-- SCRIPT DE LA VENTANA -->
-    <script>
-        function abrirModal(link) {
-            document.getElementById('enlaceStripe').href = link;
-            document.getElementById('pagoModal').style.display = 'flex';
-        }
-        function cerrarModal() {
-            document.getElementById('pagoModal').style.display = 'none';
-        }
-    </script>
-
     <!-- SCRIPT DE SUPABASE (BASE DE DATOS) -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <!-- LÓGICA DE LA VENTANA Y EL PAGO -->
     <script>
         const supabaseUrl = 'https://gsvosybjtepglohztxix.supabase.co';
         const supabaseKey = 'sb_publishable_vz5YoWqGlj2DPlGN0pms1A_yppUeNB2';
         const supabase = supabase.createClient(supabaseUrl, supabaseKey);
 
-        console.log("¡Conexión a Base de Datos Sergio OS establecida con éxito! 🚀");
+        let linkActual = "";
+        let planActual = "";
+
+        // Al hacer clic en un botón, abrimos la ventana y guardamos qué plan es
+        function abrirModal(link, plan) {
+            linkActual = link;
+            planActual = plan;
+            document.getElementById('usuarioDiscord').value = ''; // Vaciar la casilla
+            document.getElementById('btnPagar').innerText = "IR A PAGAR"; // Resetear texto botón
+            document.getElementById('pagoModal').style.display = 'flex';
+        }
+
+        function cerrarModal() {
+            document.getElementById('pagoModal').style.display = 'none';
+        }
+
+        // Función que se ejecuta al darle al botón azul "IR A PAGAR" dentro de la ventana
+        async function procesarPago() {
+            const discordVal = document.getElementById('usuarioDiscord').value;
+            
+            // Si no ha puesto el Discord, le soltamos un error y no le dejamos pagar
+            if(discordVal.trim() === "") {
+                alert("❌ ERROR: ¡Escribe tu usuario de Discord antes de pagar!");
+                return;
+            }
+
+            // Cambiamos el botón visualmente
+            document.getElementById('btnPagar').innerText = "Cargando...";
+
+            // Guardamos al cliente en tu base de datos Supabase
+            const { data, error } = await supabase
+                .from('clientes')
+                .insert([
+                    { email: discordVal, plan: planActual, pago_confirmado: false }
+                ]);
+
+            if (error) {
+                console.error("Error al guardar:", error);
+            }
+
+            // Lo mandamos al checkout de Stripe para que suelte la pasta
+            window.location.href = linkActual;
+        }
     </script>
 </body>
 </html>
