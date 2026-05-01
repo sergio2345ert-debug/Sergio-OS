@@ -103,6 +103,26 @@
             padding: 40px; width: 85%; max-width: 400px; text-align: center;
         }
 
+        /* ESTILO AGRESIVO ROJO (LA CAJA DE AVISO) */
+        .alert-agresivo {
+            background: rgba(255, 0, 0, 0.15);
+            border: 2px solid #ff0000;
+            color: #ff3333;
+            font-weight: 900;
+            font-size: 1.1rem;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            animation: latidoPeligro 1.5s infinite; /* Efecto que pulsa */
+        }
+
+        @keyframes latidoPeligro {
+            0% { transform: scale(1); box-shadow: 0 0 10px rgba(255,0,0,0.4); }
+            50% { transform: scale(1.03); box-shadow: 0 0 25px rgba(255,0,0,0.8); }
+            100% { transform: scale(1); box-shadow: 0 0 10px rgba(255,0,0,0.4); }
+        }
+
         footer { text-align: center; padding: 50px 0; color: var(--text-muted); font-size: 0.8rem; }
     </style>
 </head>
@@ -200,15 +220,25 @@
         </footer>
     </div>
 
+    <!-- VENTANA MODAL DE PAGO -->
     <div id="pagoModal" class="modal-overlay">
         <div class="modal-content">
-            <h3 style="font-family: 'Orbitron'; margin-bottom: 20px;">PAGO SEGURO</h3>
-            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 30px;">Serás redirigido a Stripe para completar el pago.</p>
+            <h3 style="font-family: 'Orbitron'; margin-bottom: 10px; color: white;">PAGO SEGURO</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 25px;">Serás redirigido a Stripe para completar el pago.</p>
+            
+            <!-- AVISO ROJO AGRESIVO -->
+            <div class="alert-agresivo">
+                ⚠️ ¡OBLIGATORIO! ⚠️<br><br>
+                TRAS PAGAR, ABRE UN TICKET EN DISCORD CON LA CAPTURA DEL PAGO.<br>
+                SIN CAPTURA NO SE ENTREGA EL TWEAK.
+            </div>
+
             <a id="enlaceStripe" href="#" target="_blank" class="btn-buy">PAGAR AHORA</a>
-            <p onclick="cerrarModal()" style="margin-top: 20px; cursor: pointer; color: var(--text-muted); font-size: 0.8rem;">Cerrar ventana</p>
+            <p onclick="cerrarModal()" style="margin-top: 25px; cursor: pointer; color: var(--text-muted); font-size: 0.8rem;">Cerrar ventana</p>
         </div>
     </div>
 
+    <!-- SCRIPT DE LA VENTANA -->
     <script>
         function abrirModal(link) {
             document.getElementById('enlaceStripe').href = link;
@@ -217,6 +247,16 @@
         function cerrarModal() {
             document.getElementById('pagoModal').style.display = 'none';
         }
+    </script>
+
+    <!-- SCRIPT DE SUPABASE (BASE DE DATOS) -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        const supabaseUrl = 'https://gsvosybjtepglohztxix.supabase.co';
+        const supabaseKey = 'sb_publishable_vz5YoWqGlj2DPlGN0pms1A_yppUeNB2';
+        const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+        console.log("¡Conexión a Base de Datos Sergio OS establecida con éxito! 🚀");
     </script>
 </body>
 </html>
